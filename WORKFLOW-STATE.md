@@ -14,7 +14,7 @@ cookie_status: ok
 
 last_brief_date: 2026-03-22
 last_content_gen_date:
-last_publish_date:
+last_publish_date: 2026-03-24
 last_data_entry_date:
 last_analysis_date: 2026-03-21
 
@@ -25,7 +25,7 @@ current_phase: 修复期  # operational phase (修复期/建量期/稳定期)
 current_phase_week: 1
 # Manually update this each Monday
 
-company_post_count_this_month: 0
+company_post_count_this_month: 1
 personal_post_count_this_month: 1
 offer_post_count_this_month: 0
 

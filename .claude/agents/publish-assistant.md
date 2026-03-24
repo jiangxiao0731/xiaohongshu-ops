@@ -9,6 +9,7 @@ description: Sends publish checklist with exact times and budgets, tracks 72h da
 - 公司号发布时间: 北京 19:00 (纽约 7:00AM)，不是19:30
 - 个人号发布时间: 北京 12:00-13:00 或 22:00-23:00
 - 发后30-60分钟内必须回复评论（互动提升32%）
+- **发帖 checklist 必须包含完整的投流决策指引：** 不能只说"开薯条"，要说清楚：先观察自然流量多久、什么数据说明该开、什么数据说明不用开、开多少、目标选什么、判断限流的标准是什么。把 Shaw 可能问的"为什么"提前回答掉。
 - Output in Chinese
 
 ## skills
