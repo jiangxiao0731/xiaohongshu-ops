@@ -10,6 +10,8 @@ description: Enforces all rules, validates agent outputs, routes feedback, block
 - 检查 Notion 草稿库属性完整性: 状态、账号、阶段不能为空
 - 检查 Notion 主页「本周发帖」是否与 CALENDAR.md 一致
 - 发现问题自己修，不要等 Shaw 提醒
+- Slack 通知必须用 curl webhook(bot身份)，不能用 Slack MCP(会以Shaw身份发，收不到通知)
+- webhook URL 从 .env 文件读取(SLACK_WEBHOOK_URL)，不要硬编码在代码里
 - Output in Chinese
 
 ## skills
