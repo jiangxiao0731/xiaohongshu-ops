@@ -1,0 +1,44 @@
+# XHS Workflow State
+# This file is auto-updated by automation scripts. Do not edit manually except where noted.
+
+phase: content_ready
+# Values: repair | building | stable | awaiting_data | brief_ready | content_ready
+# repair = 修复期 (weeks 1-4)
+# building = 建量期 (weeks 5-8) — enter when new post gets ≥50 organic likes/saves in 72h OR 聚光 CTR ≥3% with inquiries
+# stable = 稳定期 (week 9+)
+
+cookie_status: ok
+# Values: ok | expired | unknown
+# Auto-updated by daily_scrape.sh
+
+last_scrape_date: 2026-03-19
+last_scrape_keywords: 
+last_scrape_status: partial (6 failed)
+
+last_brief_date: 2026-03-22
+last_content_gen_date:
+last_publish_date:
+last_data_entry_date:
+last_analysis_date: 2026-03-21
+
+current_phase: 修复期
+# Auto-updated by analyze_performance.py
+# Values: 修复期 | 建量期 | 稳定期
+
+current_phase_week: 1
+# Manually update this each Monday
+
+company_post_count_this_month: 0
+personal_post_count_this_month: 1
+offer_post_count_this_month: 0
+
+warmup_complete: yes
+# Set to "yes" after personal account warmup posts are published
+# Only relevant during Week 1 of repair phase
+
+# MANUAL SECTION — update these yourself:
+# has_new_td_work: no
+# has_new_case: no
+# notes:
+last_missed_tasks: 公司号「蕉蕉椒椒（作品集版）」 + 个人号「蕉蕉椒椒」 → 回复评论和私信
+last_missed_date: 2026-03-21

@@ -1,0 +1,11 @@
+.env
+.venv/
+MediaCrawler/
+xhs_cookies.txt
+__pycache__/
+*.pyc
+logs/
+data/
+briefs/
+*.csv
+.DS_Store

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>交互设计 V2 — Option H: Green System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #111;
+    font-family: "Inter", "Noto Sans SC", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    padding: 20px;
+  }
+  .slides-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .slide {
+    width: 1080px;
+    height: 1440px;
+    overflow: hidden;
+    position: relative;
+  }
+  .wm {
+    position: absolute;
+    bottom: 28px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+    z-index: 10;
+  }
+
+  /*
+    PALETTE:
+    米色  #f4f2eb
+    冷绿  #a0cfa8
+    暖绿  #a4c699
+    浅绿  #d1e1d4
+    红点缀 #FF0043
+    文字  #3a3a3a
+  */
+
+  /* ========== SLIDE 1: COVER — 冷绿满屏 ========== */
+  .s1 {
+    background: #a0cfa8;
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+  }
+  .s1 .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .s1 .top-row .pill {
+    background: #f4f2eb;
+    color: #3a3a3a;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 12px 32px;
+    letter-spacing: 8px;
+  }
+  .s1 .top-row .page-count {
+    font-size: 20px;
+    color: rgba(58,58,58,0.3);
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+  .s1 .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .s1 .hero .cn {
+    font-size: 240px;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -10px;
+    color: #f4f2eb;
+    margin-bottom: 20px;
+  }
+  .s1 .hero .en {
+    font-size: 40px;
+    font-weight: 300;
+    color: rgba(58,58,58,0.35);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 64px;
+  }
+  .s1 .hero .sub-bar {
+    background: #f4f2eb;
+    display: inline-block;
+    padding: 18px 40px;
+  }
+  .s1 .hero .sub-bar span {
+    font-size: 28px;
+    font-weight: 500;
+    color: #3a3a3a;
+    letter-spacing: 4px;
+  }
+  .s1 .wm { color: rgba(58,58,58,0.15); }
+
+  /* ========== SLIDE 2: 浅绿底 ========== */
+  .s2 {
+    background: #d1e1d4;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px;
+  }
+  .s2 .slide-title {
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #3a3a3a;
+    margin-bottom: 36px;
+  }
+  .s2 .body-text {
+    font-size: 26px;
+    line-height: 1.8;
+    color: #3a3a3a;
+    margin-bottom: 32px;
+  }
+  .s2 .body-text strong { color: #FF0043; font-weight: 700; }
+  .s2 .section-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    margin-top: 8px;
+  }
+  .s2 .section-bar .line { width: 48px; height: 4px; background: #a0cfa8; }
+  .s2 .section-bar .label {
+    font-size: 20px; font-weight: 700; color: #a0cfa8;
+    letter-spacing: 4px;
+  }
+  .s2 .dir-card {
+    background: #f4f2eb;
+    padding: 20px 28px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .s2 .dir-card .name {
+    font-size: 26px; font-weight: 800; color: #3a3a3a;
+    min-width: 120px; flex-shrink: 0;
+  }
+  .s2 .dir-card .desc {
+    font-size: 22px; line-height: 1.6; color: #666;
+  }
+  .s2 .wm { color: rgba(58,58,58,0.12); }
+
+  /* ========== SLIDE 3: 冷绿底 ========== */
+  .s3 {
+    background: #a0cfa8;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px;
+  }
+  .s3 .slide-title {
+    font-size: 60px; font-weight: 900; line-height: 1.15;
+    color: #f4f2eb; margin-bottom: 36px;
+  }
+  .s3 .school-card {
+    background: #f4f2eb;
+    padding: 24px 28px;
+    margin-bottom: 14px;
+  }
+  .s3 .school-card .name {
+    font-size: 26px; font-weight: 800; color: #3a3a3a;
+    margin-bottom: 6px;
+  }
+  .s3 .school-card .name .tag {
+    display: inline-block;
+    background: #FF0043; color: #fff;
+    font-size: 15px; font-weight: 700;
+    padding: 3px 12px; margin-left: 10px;
+    vertical-align: middle;
+  }
+  .s3 .school-card .desc {
+    font-size: 21px; line-height: 1.6; color: #666;
+  }
+  .s3 .wm { color: rgba(244,242,235,0.2); }
+
+  /* ========== SLIDE 4: 米色底 ========== */
+  .s4 {
+    background: #f4f2eb;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px;
+  }
+  .s4 .slide-title {
+    font-size: 60px; font-weight: 900; line-height: 1.15;
+    color: #3a3a3a; margin-bottom: 32px;
+  }
+  .s4 .region-label {
+    display: inline-block;
+    background: #a4c699;
+    color: #fff;
+    font-size: 18px; font-weight: 700;
+    padding: 8px 24px; letter-spacing: 4px;
+    margin-bottom: 16px; margin-top: 12px;
+  }
+  .s4 .school-row {
+    background: #d1e1d4;
+    padding: 18px 24px;
+    margin-bottom: 10px;
+  }
+  .s4 .school-row .name {
+    font-size: 24px; font-weight: 800; color: #3a3a3a;
+    margin-bottom: 4px;
+  }
+  .s4 .school-row .name .tag {
+    display: inline-block;
+    background: #a0cfa8; color: #fff;
+    font-size: 14px; font-weight: 700;
+    padding: 2px 10px; margin-left: 8px;
+    vertical-align: middle;
+  }
+  .s4 .school-row .desc {
+    font-size: 21px; line-height: 1.55; color: #555;
+  }
+  .s4 .wm { color: #c5c0b6; }
+
+  /* ========== SLIDE 5: 暖绿底 ========== */
+  .s5 {
+    background: #a4c699;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px;
+  }
+  .s5 .slide-title {
+    font-size: 60px; font-weight: 900; line-height: 1.15;
+    color: #f4f2eb; margin-bottom: 32px;
+  }
+  .s5 .body-text {
+    font-size: 26px; line-height: 1.75; color: #3a3a3a;
+    margin-bottom: 28px;
+  }
+  .s5 .body-text strong { color: #FF0043; font-weight: 700; }
+  .s5 .req-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin-bottom: 24px;
+  }
+  .s5 .req-card {
+    background: #f4f2eb;
+    padding: 22px 24px;
+    border-top: 5px solid #a0cfa8;
+  }
+  .s5 .req-card .label {
+    font-size: 16px; font-weight: 700; color: #a0cfa8;
+    letter-spacing: 2px; margin-bottom: 8px;
+  }
+  .s5 .req-card .value {
+    font-size: 22px; line-height: 1.5; color: #3a3a3a;
+  }
+  .s5 .highlight-box {
+    background: #f4f2eb;
+    padding: 24px 32px;
+    font-size: 26px; font-weight: 700;
+    color: #3a3a3a; line-height: 1.4;
+    margin-top: 16px;
+    border-left: 8px solid #a0cfa8;
+  }
+  .s5 .wm { color: rgba(244,242,235,0.2); }
+
+  /* ========== SLIDE 6: 浅绿底 ========== */
+  .s6 {
+    background: #d1e1d4;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px;
+  }
+  .s6 .slide-title {
+    font-size: 60px; font-weight: 900; line-height: 1.15;
+    color: #3a3a3a; margin-bottom: 32px;
+  }
+  .s6 .trait {
+    background: #f4f2eb;
+    padding: 20px 28px;
+    margin-bottom: 12px;
+    font-size: 24px; line-height: 1.6; color: #3a3a3a;
+    border-left: 6px solid #a0cfa8;
+  }
+  .s6 .trait strong { color: #FF0043; font-weight: 700; }
+  .s6 .bottom-box {
+    background: #a0cfa8;
+    color: #f4f2eb;
+    padding: 24px 32px;
+    font-size: 24px; font-weight: 600;
+    line-height: 1.5;
+    margin-top: auto;
+  }
+  .s6 .wm { color: rgba(58,58,58,0.12); }
+
+  /* ========== SLIDE 7: 冷绿底 ========== */
+  .s7 {
+    background: #a0cfa8;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 80px;
+  }
+  .s7 .slide-title {
+    font-size: 60px; font-weight: 900; line-height: 1.15;
+    color: #f4f2eb; margin-bottom: 24px;
+  }
+  .s7 .intro {
+    font-size: 26px; line-height: 1.75; color: #3a3a3a;
+    margin-bottom: 24px;
+  }
+  .s7 .intro strong { color: #FF0043; font-weight: 700; }
+  .s7 .sec-label {
+    display: inline-block;
+    background: #f4f2eb;
+    color: #3a3a3a;
+    font-size: 18px; font-weight: 700;
+    padding: 8px 24px; letter-spacing: 4px;
+    margin-bottom: 14px; margin-top: 8px;
+  }
+  .s7 .salary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(244,242,235,0.3);
+    font-size: 24px;
+  }
+  .s7 .salary-row .role { color: #f4f2eb; font-weight: 500; }
+  .s7 .salary-row .pay { color: #FF0043; font-weight: 800; }
+  .s7 .note-box {
+    background: #f4f2eb;
+    padding: 20px 28px;
+    font-size: 21px; line-height: 1.7;
+    color: #666;
+    margin-top: auto;
+  }
+  .s7 .wm { color: rgba(244,242,235,0.2); }
+</style>
+</head>
+<body>
+
+<div class="slides-stack">
+
+  <!-- H Slide 1: Cover — 冷绿 #a0cfa8 -->
+  <div class="slide s1">
+    <div class="top-row">
+      <div class="pill">一篇说清</div>
+      <div class="page-count">共7页</div>
+    </div>
+    <div class="hero">
+      <div class="cn">交互<br>设计</div>
+      <div class="en">Interaction Design</div>
+      <div class="sub-bar"><span>从专业介绍到就业全解析</span></div>
+    </div>
+    <div class="wm">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- H Slide 2: 浅绿 #d1e1d4 -->
+  <div class="slide s2">
+    <div class="slide-title">交互设计到底<br>是干嘛的？</div>
+    <div class="body-text">很多人一听"交互设计"就觉得是画UI界面的，其实不是。交互设计的核心是——你用一个产品的时候，为什么觉得好用或者难用？这个"为什么"就是交互设计在研究的事。简单说，就是解决<strong>"人和产品之间的问题"</strong>。</div>
+    <div class="section-bar"><div class="line"></div><div class="label">细分方向</div></div>
+    <div class="dir-card">
+      <div class="name">UX设计</div>
+      <div class="desc">用户体验，最主流的方向，大厂都在招</div>
+    </div>
+    <div class="dir-card">
+      <div class="name">UI设计</div>
+      <div class="desc">视觉界面，偏好看，但现在单做UI越来越卷</div>
+    </div>
+    <div class="dir-card">
+      <div class="name">服务设计</div>
+      <div class="desc">不只看一个APP，看整个服务链路</div>
+    </div>
+    <div class="dir-card">
+      <div class="name">交互装置</div>
+      <div class="desc">做实体的东西，传感器、Arduino、物理交互</div>
+    </div>
+    <div class="wm">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- H Slide 3: 冷绿 #a0cfa8 -->
+  <div class="slide s3">
+    <div class="slide-title">热门学校 — 美国</div>
+    <div class="school-card">
+      <div class="name">CMU MHCI <span class="tag">录取率~8%</span></div>
+      <div class="desc">交互设计天花板，没有之一。极其重视research，你得能做用户研究、能写论文、能做原型，三件套缺一不可。适合学霸型选手。</div>
+    </div>
+    <div class="school-card">
+      <div class="name">NYU IDM</div>
+      <div class="desc">在纽约，这一点就赢了一半。技术和设计都要会一点，氛围比较自由。毕业在纽约找工作方便。</div>
+    </div>
+    <div class="school-card">
+      <div class="name">Parsons MFA D&T</div>
+      <div class="desc">偏综合，什么都能做，但也意味着你得自己找方向。适合自驱力强的人。</div>
+    </div>
+    <div class="school-card">
+      <div class="name">RISD IDx</div>
+      <div class="desc">罗德岛，偏实体交互和工业设计底子，如果你喜欢做摸得着的东西。</div>
+    </div>
+    <div class="school-card">
+      <div class="name">Georgia Tech MS-HCI</div>
+      <div class="desc">理工科背景友好，STEM项目，学术氛围浓。</div>
+    </div>
+    <div class="wm">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- H Slide 4: 米色 #f4f2eb -->
+  <div class="slide s4">
+    <div class="slide-title">热门学校<br>英国 / 欧洲 / 香港</div>
+    <div class="region-label">英国</div>
+    <div class="school-row">
+      <div class="name">RCA IDE <span class="tag">全球第一</span></div>
+      <div class="desc">皇家艺术学院。IDE更偏创新工程，不是纯UX，别搞混了。</div>
+    </div>
+    <div class="school-row">
+      <div class="name">UAL LCC Interaction Design</div>
+      <div class="desc">伦艺交互，实验性强，作品集可以比较wild。</div>
+    </div>
+    <div class="school-row">
+      <div class="name">Glasgow GSA</div>
+      <div class="desc">格拉斯哥，性价比高，一年制。</div>
+    </div>
+    <div class="region-label">欧洲</div>
+    <div class="school-row">
+      <div class="name">TU Delft IDE（荷兰）</div>
+      <div class="desc">工科背景强，交互偏工业/产品方向，学费比英美低很多。</div>
+    </div>
+    <div class="school-row">
+      <div class="name">Aalto University（芬兰）</div>
+      <div class="desc">北欧设计风格，学费低，注重可持续设计。</div>
+    </div>
+    <div class="region-label">香港</div>
+    <div class="school-row">
+      <div class="name">PolyU School of Design</div>
+      <div class="desc">香港理工，亚洲顶尖交互设计，离大陆近，一年制。</div>
+    </div>
+    <div class="wm">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- H Slide 5: 暖绿 #a4c699 -->
+  <div class="slide s5">
+    <div class="slide-title">申请难度</div>
+    <div class="body-text">作品集是最重要的，占录取决定的<strong>70%以上</strong>。要3-5个项目，每个项目必须展示完整流程：发现问题 → 研究 → 定义 → 原型 → 测试。纯放最终效果图的作品集基本过不了。</div>
+    <div class="req-grid">
+      <div class="req-card">
+        <div class="label">作品集</div>
+        <div class="value">3-5个项目，展示完整设计流程</div>
+      </div>
+      <div class="req-card">
+        <div class="label">GPA</div>
+        <div class="value">美国TOP校 3.3+ / 英国 2:1</div>
+      </div>
+      <div class="req-card">
+        <div class="label">语言</div>
+        <div class="value">TOEFL 100+ / IELTS 7.0+</div>
+      </div>
+      <div class="req-card">
+        <div class="label">核心能力</div>
+        <div class="value">用户研究 > 视觉 > 技术</div>
+      </div>
+    </div>
+    <div class="highlight-box">核心能力优先级：用户研究 > 视觉设计 > 技术实现</div>
+    <div class="wm">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- H Slide 6: 浅绿 #d1e1d4 -->
+  <div class="slide s6">
+    <div class="slide-title">什么样的人<br>适合学交互</div>
+    <div class="trait">设计/CS/心理学背景（转专业也很多）</div>
+    <div class="trait">会盯着一个APP想<strong>"这个按钮为什么放这里"</strong></div>
+    <div class="trait">想做有用的东西——不是纯艺术表达，是真的能被人用的产品</div>
+    <div class="trait">对<strong>"弱势群体怎么用产品"</strong>有感觉（无障碍设计/包容性设计）</div>
+    <div class="trait">能接受做大量用户访谈、问卷、数据分析，而不是只画图</div>
+    <div class="bottom-box">如果更想做"好看的东西"而不是"好用的东西"，可能平面设计更适合</div>
+    <div class="wm">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- H Slide 7: 冷绿 #a0cfa8 -->
+  <div class="slide s7">
+    <div class="slide-title">就业方向</div>
+    <div class="intro">交互设计是设计类留学里就业<strong>最好的方向，没有之一</strong>。</div>
+    <div class="sec-label">美国应届</div>
+    <div class="salary-row"><span class="role">UX Designer</span><span class="pay">$85-120K/年</span></div>
+    <div class="salary-row"><span class="role">Product Designer</span><span class="pay">$90-130K/年</span></div>
+    <div class="salary-row"><span class="role">UX Researcher</span><span class="pay">$90-120K/年</span></div>
+    <div class="salary-row"><span class="role">Service Designer</span><span class="pay">偏少但薪资不低</span></div>
+    <div style="height:16px;"></div>
+    <div class="sec-label">回国</div>
+    <div class="salary-row"><span class="role">互联网大厂交互设计师</span><span class="pay">30-50W/年</span></div>
+    <div class="note-box">阿里/腾讯/字节 · 国内"交互设计"和"UI设计"经常混着招 · 大厂HC在缩，但中小公司和to B赛道还是缺人</div>
+    <div class="wm">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>交互设计 V2 — Option D Capture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a1a;
+    font-family: "Inter", "Noto Sans SC", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #494949;
+    padding: 20px;
+  }
+  .slides-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .slide {
+    width: 1080px;
+    height: 1440px;
+    overflow: hidden;
+    position: relative;
+  }
+  .watermark {
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 2px;
+    z-index: 10;
+  }
+
+  /* ==================== OPTION D: MINIMAL BOLD ==================== */
+  .d .slide { background: #f4f2eb; color: #494949; }
+  .d .watermark { color: #b0b0b0; }
+
+  /* D - Slide 1 Cover */
+  .d .s1 {
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+    padding: 120px 100px;
+  }
+  .d .s1 .small-text {
+    font-size: 36px; font-weight: 400; color: #494949;
+    letter-spacing: 12px; margin-bottom: 16px;
+  }
+  .d .s1 .big-text {
+    font-size: 220px; font-weight: 900; color: #494949;
+    line-height: 1.05; letter-spacing: -4px;
+    position: relative;
+  }
+  .d .s1 .big-text::after {
+    content: ''; position: absolute; bottom: -8px; left: 0;
+    width: 100%; height: 16px; background: #a0cfa8;
+  }
+  .d .s1 .en-text {
+    font-size: 38px; font-weight: 300; color: #999;
+    letter-spacing: 6px; margin-top: 48px;
+    text-transform: uppercase;
+  }
+  .d .s1 .sub-text {
+    font-size: 30px; color: #494949; margin-top: 56px;
+    letter-spacing: 2px; font-weight: 400;
+    border-left: 6px solid #a0cfa8; padding-left: 24px;
+  }
+
+  /* D - Content slides base */
+  .d .content-slide {
+    padding: 72px 80px 72px 80px;
+    display: flex; flex-direction: column;
+  }
+  .d .content-slide .slide-title {
+    font-size: 64px; font-weight: 900; color: #494949;
+    line-height: 1.2; margin-bottom: 40px;
+    position: relative; display: inline-block;
+  }
+  .d .content-slide .slide-title .red-underline {
+    position: absolute; bottom: -4px; left: 0;
+    height: 8px; background: #a0cfa8; width: 100%;
+  }
+  .d .content-slide .body-text {
+    font-size: 26px; line-height: 1.75; color: #494949;
+    margin-bottom: 24px;
+  }
+  .d .content-slide .section-label {
+    display: inline-block; background: #a0cfa8; color: #fff;
+    font-size: 22px; font-weight: 700; padding: 6px 20px;
+    margin-bottom: 16px; margin-top: 16px; letter-spacing: 1px;
+  }
+  .d .content-slide .item {
+    margin-bottom: 14px; font-size: 24px; line-height: 1.6; color: #494949;
+  }
+  .d .content-slide .item strong {
+    color: #FF0043; font-weight: 700;
+  }
+  .d .content-slide .item-name {
+    font-size: 26px; font-weight: 800; color: #494949;
+    margin-bottom: 4px;
+  }
+  .d .content-slide .item-desc {
+    font-size: 23px; line-height: 1.6; color: #666;
+    margin-bottom: 14px; padding-left: 0;
+  }
+  .d .content-slide .red-divider {
+    width: 60px; height: 6px; background: #a0cfa8; margin: 16px 0;
+  }
+  .d .content-slide .highlight-box {
+    background: #a0cfa8; color: #fff; padding: 20px 28px;
+    font-size: 26px; font-weight: 700; line-height: 1.5;
+    margin: 16px 0;
+  }
+  .d .content-slide .salary-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid #ddd;
+    font-size: 24px;
+  }
+  .d .content-slide .salary-row .amount {
+    font-weight: 800; color: #FF0043;
+  }
+</style>
+</head>
+<body>
+
+<div class="slides-stack d">
+
+  <!-- D Slide 1: Cover -->
+  <div class="slide s1">
+    <div class="small-text">一篇说清</div>
+    <div class="big-text">交互<br>设计</div>
+    <div class="en-text">Interaction Design</div>
+    <div class="sub-text">从专业介绍到就业全解析</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 2 -->
+  <div class="slide content-slide s2">
+    <div class="slide-title">交互设计到底<br>是干嘛的？<span class="red-underline"></span></div>
+    <div class="body-text">很多人一听"交互设计"就觉得是画UI界面的，其实不是。交互设计的核心是——你用一个产品的时候，为什么觉得好用或者难用？这个"为什么"就是交互设计在研究的事。简单说，就是解决<strong style="color:#FF0043">"人和产品之间的问题"</strong>。</div>
+    <div class="section-label">细分方向</div>
+    <div class="item"><strong>UX设计</strong> — 用户体验，最主流的方向，大厂都在招</div>
+    <div class="item"><strong>UI设计</strong> — 视觉界面，偏好看，但现在单做UI越来越卷</div>
+    <div class="item"><strong>服务设计</strong> — 不只看一个APP，看整个服务链路</div>
+    <div class="item"><strong>交互装置</strong> — 做实体的东西，传感器、Arduino、物理交互</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 3: US Schools -->
+  <div class="slide content-slide s3">
+    <div class="slide-title">热门学校<br><span style="color:#a0cfa8">美国</span></div>
+    <div class="red-divider"></div>
+    <div class="item-name">CMU MHCI</div>
+    <div class="item-desc">交互设计天花板，没有之一。录取率大概8%，卷到飞起。极其重视research，你得能做用户研究、能写论文、能做原型，三件套缺一不可。适合学霸型选手。</div>
+    <div class="item-name">NYU IDM</div>
+    <div class="item-desc">在纽约，这一点就赢了一半。技术和设计都要会一点，氛围比较自由。毕业在纽约找工作方便。</div>
+    <div class="item-name">Parsons MFA D&T</div>
+    <div class="item-desc">偏综合，什么都能做，但也意味着你得自己找方向。适合自驱力强的人。</div>
+    <div class="item-name">RISD IDx</div>
+    <div class="item-desc">罗德岛，偏实体交互和工业设计底子，如果你喜欢做摸得着的东西。</div>
+    <div class="item-name">Georgia Tech MS-HCI</div>
+    <div class="item-desc">理工科背景友好，STEM项目，学术氛围浓。</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 4: UK / Europe / HK Schools -->
+  <div class="slide content-slide s4">
+    <div class="slide-title">热门学校<br><span style="color:#a0cfa8">英国 / 欧洲 / 香港</span></div>
+    <div class="red-divider"></div>
+    <div class="section-label">英国</div>
+    <div class="item-name">RCA IDE</div>
+    <div class="item-desc" style="font-size:22px;">皇家艺术学院，全球排名第一。IDE更偏创新工程，不是纯UX，别搞混了。</div>
+    <div class="item-name">UAL LCC Interaction Design</div>
+    <div class="item-desc" style="font-size:22px;">伦艺交互，实验性强，作品集可以比较wild。</div>
+    <div class="item-name">Glasgow GSA</div>
+    <div class="item-desc" style="font-size:22px;">格拉斯哥，性价比高，一年制，适合预算有限但想拿个英国学位的同学。</div>
+    <div class="section-label">欧洲</div>
+    <div class="item-name">TU Delft IDE（荷兰）</div>
+    <div class="item-desc" style="font-size:22px;">工科背景强，交互偏工业/产品方向，学费比英美低很多。</div>
+    <div class="item-name">Aalto University（芬兰）</div>
+    <div class="item-desc" style="font-size:22px;">北欧设计风格，学费低，注重可持续设计。</div>
+    <div class="item-name">Politecnico di Milano（意大利）</div>
+    <div class="item-desc" style="font-size:22px;">米兰理工，性价比高，欧洲就业认可度高。</div>
+    <div class="section-label">香港</div>
+    <div class="item-name">PolyU School of Design（香港）</div>
+    <div class="item-desc" style="font-size:22px;">香港理工，亚洲顶尖交互设计，离大陆近，一年制。</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 5: Application -->
+  <div class="slide content-slide s5">
+    <div class="slide-title">申请难度</div>
+    <div class="body-text">作品集是最重要的，占录取决定的<strong style="color:#FF0043">70%以上</strong>。要3-5个项目，每个项目必须展示完整流程：发现问题 → 研究 → 定义 → 原型 → 测试。纯放最终效果图的作品集基本过不了。</div>
+    <div class="red-divider"></div>
+    <div class="section-label">核心要求</div>
+    <div class="item"><strong>作品集</strong> — 3-5个项目，展示完整设计流程</div>
+    <div class="item"><strong>GPA</strong> — 美国TOP校 3.3+ / 英国 2:1（CMU真的看GPA）</div>
+    <div class="item"><strong>语言</strong> — TOEFL 100+ / IELTS 7.0+</div>
+    <div style="height:20px"></div>
+    <div class="section-label">核心能力优先级</div>
+    <div class="highlight-box">用户研究 > 视觉设计 > 技术实现</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 6: Who fits -->
+  <div class="slide content-slide s6">
+    <div class="slide-title">什么样的人<br>适合学交互</div>
+    <div class="red-divider"></div>
+    <div class="item">设计/CS/心理学背景（转专业也很多）</div>
+    <div style="height:8px"></div>
+    <div class="item">会盯着一个APP想<strong>"这个按钮为什么放这里"</strong></div>
+    <div style="height:8px"></div>
+    <div class="item">想做有用的东西——不是纯艺术表达，是真的能被人用的产品</div>
+    <div style="height:8px"></div>
+    <div class="item">对<strong>"弱势群体怎么用产品"</strong>有感觉（无障碍设计/包容性设计）</div>
+    <div style="height:8px"></div>
+    <div class="item">能接受做大量用户访谈、问卷、数据分析，而不是只画图</div>
+    <div style="height:24px"></div>
+    <div class="highlight-box">如果更想做"好看的东西"而不是"好用的东西"，可能平面设计更适合</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 7: Career -->
+  <div class="slide content-slide s7">
+    <div class="slide-title">就业方向</div>
+    <div class="body-text" style="margin-bottom:16px">交互设计是设计类留学里就业<strong style="color:#FF0043">最好的方向，没有之一</strong>。</div>
+    <div class="section-label">美国应届</div>
+    <div class="salary-row"><span>UX Designer</span><span class="amount">$85-120K/年</span></div>
+    <div class="salary-row"><span>Product Designer</span><span class="amount">$90-130K/年</span></div>
+    <div class="salary-row"><span>UX Researcher</span><span class="amount">$90-120K/年</span></div>
+    <div class="salary-row"><span>Service Designer</span><span class="amount">偏少但薪资不低</span></div>
+    <div style="height:16px"></div>
+    <div class="section-label">回国</div>
+    <div class="salary-row"><span>互联网大厂交互设计师</span><span class="amount">30-50W/年</span></div>
+    <div class="item" style="font-size:22px;color:#888;margin-top:12px">阿里 / 腾讯 / 字节</div>
+    <div class="item" style="font-size:22px;color:#888">注意：国内"交互设计"和"UI设计"经常混着招</div>
+    <div class="item" style="font-size:22px;color:#888">大厂HC在缩，但中小公司和to B赛道还是缺人</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

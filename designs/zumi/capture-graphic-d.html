@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>平面设计 Option D — Capture Ready</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f5f5f5;
+    font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    color: #494949;
+    padding: 40px;
+  }
+  h1.page-title {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: #333;
+    padding: 16px 24px;
+    display: inline-block;
+  }
+  .slide {
+    width: 1080px;
+    height: 1440px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .watermark {
+    position: absolute;
+    bottom: 24px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 22px;
+    color: #b0b0b0;
+    letter-spacing: 2px;
+    z-index: 10;
+  }
+
+  /* ==================== OPTION D: MINIMAL BOLD ==================== */
+  .d .slide { background: #f4f2eb; color: #494949; }
+
+  .d .s1 {
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: flex-start; padding: 120px 80px;
+  }
+  .d .s1 .top-small {
+    font-size: 36px; font-weight: 400; letter-spacing: 12px;
+    color: #494949; margin-bottom: 24px;
+  }
+  .d .s1 .big-title {
+    font-size: 220px; font-weight: 900; line-height: 1;
+    color: #494949; letter-spacing: -4px;
+    position: relative;
+  }
+  .d .s1 .big-title .underline-red {
+    position: absolute; bottom: -8px; left: 0;
+    width: 100%; height: 16px; background: #FF0043;
+  }
+  .d .s1 .en-title {
+    font-size: 48px; font-weight: 300; color: #FF0043;
+    letter-spacing: 10px; margin-top: 40px;
+    text-transform: uppercase;
+  }
+  .d .s1 .subtitle {
+    font-size: 32px; font-weight: 400; color: #888;
+    margin-top: 48px; letter-spacing: 4px;
+  }
+
+  .d .s2 { padding: 64px 72px; display: flex; flex-direction: column; }
+  .d .s2 .slide-title {
+    font-size: 64px; font-weight: 900; line-height: 1.2;
+    margin-bottom: 40px; color: #494949;
+  }
+  .d .s2 .slide-title .red { color: #FF0043; }
+  .d .s2 .body-text {
+    font-size: 26px; line-height: 1.8; color: #494949;
+    margin-bottom: 32px;
+  }
+  .d .s2 .section-label {
+    font-size: 22px; font-weight: 700; color: #FF0043;
+    letter-spacing: 4px; margin-bottom: 16px;
+    padding-bottom: 8px; border-bottom: 3px solid #FF0043;
+    display: inline-block;
+  }
+  .d .s2 .dir-list {
+    list-style: none; margin-top: 8px;
+  }
+  .d .s2 .dir-list li {
+    font-size: 24px; line-height: 1.7; color: #494949;
+    padding: 6px 0; border-bottom: 1px solid #e0ddd6;
+  }
+  .d .s2 .dir-list li strong {
+    color: #FF0043; font-weight: 700;
+  }
+
+  .d .s3 { padding: 64px 72px; display: flex; flex-direction: column; }
+  .d .s3 .slide-title {
+    font-size: 64px; font-weight: 900; line-height: 1.2;
+    margin-bottom: 32px; color: #494949;
+  }
+  .d .s3 .slide-title .red { color: #FF0043; }
+  .d .s3 .school-item {
+    margin-bottom: 20px; padding-bottom: 20px;
+    border-bottom: 1px solid #e0ddd6;
+  }
+  .d .s3 .school-item:last-child { border-bottom: none; }
+  .d .s3 .school-name {
+    font-size: 32px; font-weight: 800; color: #494949;
+    margin-bottom: 4px;
+  }
+  .d .s3 .school-name .tag {
+    display: inline-block; background: #FF0043; color: #fff;
+    font-size: 18px; font-weight: 700; padding: 2px 12px;
+    margin-left: 8px; vertical-align: middle;
+  }
+  .d .s3 .school-desc {
+    font-size: 23px; line-height: 1.65; color: #666;
+  }
+
+  .d .s4 { padding: 64px 72px; display: flex; flex-direction: column; }
+  .d .s4 .slide-title {
+    font-size: 64px; font-weight: 900; line-height: 1.2;
+    margin-bottom: 32px; color: #494949;
+  }
+  .d .s4 .slide-title .red { color: #FF0043; }
+  .d .s4 .school-item {
+    margin-bottom: 28px; padding-bottom: 28px;
+    border-bottom: 1px solid #e0ddd6;
+  }
+  .d .s4 .school-item:last-child { border-bottom: none; }
+  .d .s4 .school-name {
+    font-size: 34px; font-weight: 800; color: #494949;
+    margin-bottom: 6px;
+  }
+  .d .s4 .school-name .tag {
+    display: inline-block; background: #FF0043; color: #fff;
+    font-size: 18px; font-weight: 700; padding: 2px 12px;
+    margin-left: 8px; vertical-align: middle;
+  }
+  .d .s4 .school-desc {
+    font-size: 24px; line-height: 1.7; color: #666;
+  }
+
+  .d .s5 { padding: 64px 72px; display: flex; flex-direction: column; }
+  .d .s5 .slide-title {
+    font-size: 54px; font-weight: 900; line-height: 1.2;
+    margin-bottom: 28px; color: #494949;
+  }
+  .d .s5 .slide-title .red { color: #FF0043; }
+  .d .s5 .body-text {
+    font-size: 24px; line-height: 1.75; color: #494949;
+    margin-bottom: 24px;
+  }
+  .d .s5 .req-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    margin-bottom: 24px;
+  }
+  .d .s5 .req-item {
+    background: #fff; padding: 20px 24px; border-left: 4px solid #FF0043;
+  }
+  .d .s5 .req-item .label {
+    font-size: 20px; font-weight: 700; color: #FF0043; margin-bottom: 4px;
+  }
+  .d .s5 .req-item .value {
+    font-size: 22px; color: #494949;
+  }
+  .d .s5 .warning-box {
+    background: #FF0043; color: #fff; padding: 24px 32px;
+    font-size: 22px; line-height: 1.7; margin-top: auto;
+  }
+  .d .s5 .warning-box strong { font-size: 24px; }
+
+  .d .s6 { padding: 64px 72px; display: flex; flex-direction: column; }
+  .d .s6 .slide-title {
+    font-size: 56px; font-weight: 900; line-height: 1.2;
+    margin-bottom: 32px; color: #494949;
+  }
+  .d .s6 .slide-title .red { color: #FF0043; }
+  .d .s6 .trait-list { list-style: none; flex: 1; }
+  .d .s6 .trait-list li {
+    font-size: 24px; line-height: 1.6; color: #494949;
+    padding: 14px 0; border-bottom: 1px solid #e0ddd6;
+    padding-left: 24px; position: relative;
+  }
+  .d .s6 .trait-list li::before {
+    content: ''; position: absolute; left: 0; top: 22px;
+    width: 10px; height: 10px; background: #FF0043;
+  }
+  .d .s6 .note {
+    font-size: 22px; line-height: 1.7; color: #888;
+    margin-top: 24px; padding-top: 20px;
+    border-top: 3px solid #FF0043;
+  }
+
+  .d .s7 { padding: 60px 72px; display: flex; flex-direction: column; }
+  .d .s7 .slide-title {
+    font-size: 58px; font-weight: 900; line-height: 1.2;
+    margin-bottom: 20px; color: #494949;
+  }
+  .d .s7 .slide-title .red { color: #FF0043; }
+  .d .s7 .intro-text {
+    font-size: 24px; line-height: 1.7; color: #666;
+    margin-bottom: 24px;
+  }
+  .d .s7 .salary-section {
+    margin-bottom: 20px;
+  }
+  .d .s7 .salary-section .sec-title {
+    font-size: 26px; font-weight: 800; color: #FF0043;
+    margin-bottom: 8px; letter-spacing: 2px;
+  }
+  .d .s7 .salary-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid #e0ddd6;
+    font-size: 22px; color: #494949;
+  }
+  .d .s7 .salary-item .role { font-weight: 600; }
+  .d .s7 .salary-item .pay { color: #FF0043; font-weight: 700; }
+  .d .s7 .trend-box {
+    background: #494949; color: #f4f2eb; padding: 24px 28px;
+    font-size: 22px; line-height: 1.7; margin-top: auto;
+  }
+  .d .s7 .trend-box strong { color: #FF0043; }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">平面设计 Option D -- Capture Ready</h1>
+
+<div class="d">
+
+  <!-- D Slide 1: Cover -->
+  <div class="slide s1" style="background: #f4f2eb;">
+    <div class="top-small">一篇说清</div>
+    <div class="big-title">平面设计<div class="underline-red"></div></div>
+    <div class="en-title">Graphic Design</div>
+    <div class="subtitle">视觉传达的整套系统</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 2: What is it -->
+  <div class="slide s2" style="background: #f4f2eb;">
+    <div class="slide-title">平面设计到底<br>还<span class="red">值不值得</span>学？</div>
+    <div class="body-text">先回答：<strong style="color:#FF0043;">值得</strong>，但你得搞清楚你学的是什么。平面设计不是"用PS做海报"。如果你对这个专业的理解还停留在"排版好看"，那你大概率申不上好学校，也找不到好工作。真正的平面设计是——<strong style="color:#FF0043;">视觉传达的整套系统</strong>。一个品牌从logo到名片到包装到网站到空间指示系统，所有视觉层面的东西要形成一个完整的语言。</div>
+    <div class="section-label">细分方向</div>
+    <ul class="dir-list">
+      <li><strong>品牌设计</strong> — 做品牌视觉系统，从logo到整套VI</li>
+      <li><strong>字体设计</strong> — 设计字体，听着小众但极其硬核</li>
+      <li><strong>编辑设计</strong> — 做书、做杂志、做排版</li>
+      <li><strong>包装设计</strong> — 产品包装，快消品、奢侈品都需要</li>
+      <li><strong>信息设计</strong> — 把复杂信息变成好懂的视觉</li>
+    </ul>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 3: US Schools -->
+  <div class="slide s3" style="background: #f4f2eb;">
+    <div class="slide-title">热门学校 — <span class="red">美国</span></div>
+    <div class="school-item">
+      <div class="school-name">Yale MFA Graphic Design <span class="tag">录取率~3%</span></div>
+      <div class="school-desc">全美第一。Yale的平面非常概念化，做的东西不一定"好看"但必须"有想法"。两年制，每年只收十几个人，精英教育。</div>
+    </div>
+    <div class="school-item">
+      <div class="school-name">RISD Graphic Design</div>
+      <div class="school-desc">手工艺和数字结合好。非常重视过程——sketchbook、实验、思考路径比最终成品更重要。</div>
+    </div>
+    <div class="school-item">
+      <div class="school-name">SVA MFA Design</div>
+      <div class="school-desc">纽约曼哈顿，最大优势是行业资源。老师很多在职设计师/art director，偏商业应用。</div>
+    </div>
+    <div class="school-item">
+      <div class="school-name">Cranbrook 2D Design</div>
+      <div class="school-desc">极其自由，几乎没有课程结构。适合已经知道自己要什么的人。</div>
+    </div>
+    <div class="school-item">
+      <div class="school-name">CalArts Graphic Design</div>
+      <div class="school-desc">洛杉矶，影视和设计交叉多，motion graphic/视觉叙事有独特资源。</div>
+    </div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 4: UK / Europe / HK Schools -->
+  <div class="slide s4" style="background: #f4f2eb;">
+    <div class="slide-title">热门学校 — <span class="red">英国 / 欧洲 / 香港</span></div>
+    <div class="school-item" style="margin-bottom:14px; padding-bottom:14px;">
+      <div class="school-name" style="font-size:30px;">RCA Visual Communication <span class="tag">全球顶尖</span></div>
+      <div class="school-desc" style="font-size:22px;">皇艺视觉传达，全球顶尖。分Experimental Communication和Graphic Design两个方向。</div>
+    </div>
+    <div class="school-item" style="margin-bottom:14px; padding-bottom:14px;">
+      <div class="school-name" style="font-size:30px;">CSM Graphic Communication Design</div>
+      <div class="school-desc" style="font-size:22px;">中央圣马丁，风格大胆、实验性强。它喜欢有个性的学生。</div>
+    </div>
+    <div class="school-item" style="margin-bottom:14px; padding-bottom:14px;">
+      <div class="school-name" style="font-size:30px;">LCC Graphic & Media Design</div>
+      <div class="school-desc" style="font-size:22px;">伦敦传媒学院，偏数字媒体方向的平面，网页设计/数字出版。</div>
+    </div>
+    <div class="school-item" style="margin-bottom:14px; padding-bottom:14px;">
+      <div class="school-name" style="font-size:30px;">KABK Royal Academy（荷兰）</div>
+      <div class="school-desc" style="font-size:22px;">海牙皇家艺术学院，Type & Media全球字体设计第一。</div>
+    </div>
+    <div class="school-item" style="margin-bottom:14px; padding-bottom:14px;">
+      <div class="school-name" style="font-size:30px;">ECAL（瑞士）</div>
+      <div class="school-desc" style="font-size:22px;">洛桑，平面设计界的隐藏大佬，瑞士风格传承。</div>
+    </div>
+    <div class="school-item" style="margin-bottom:14px; padding-bottom:14px;">
+      <div class="school-name" style="font-size:30px;">Gerrit Rietveld Academie（荷兰）</div>
+      <div class="school-desc" style="font-size:22px;">阿姆斯特丹，实验性极强。</div>
+    </div>
+    <div class="school-item" style="margin-bottom:0; padding-bottom:0; border-bottom:none;">
+      <div class="school-name" style="font-size:30px;">PolyU（香港）</div>
+      <div class="school-desc" style="font-size:22px;">香港理工视觉传达，亚洲认可度高。</div>
+    </div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 5: Application -->
+  <div class="slide s5" style="background: #f4f2eb;">
+    <div class="slide-title">申请——作品集跟<br>其他设计<span class="red">不太一样</span></div>
+    <div class="body-text">平面设计的作品集核心是"视觉系统"。不能只放一堆好看的单张海报。要展示：给你一个主题，你怎么建立一整套视觉语言——字体选择、色彩体系、版式逻辑、图形语言——一致的、有逻辑的、能延展的。</div>
+    <div class="req-grid">
+      <div class="req-item"><div class="label">基本功</div><div class="value">InDesign必须会（很多人只会AI和PS但不会排长文档）</div></div>
+      <div class="req-item"><div class="label">加分项</div><div class="value">做过丝网印刷、活字印刷是很大的加分项</div></div>
+      <div class="req-item"><div class="label">GPA</div><div class="value">美国TOP校3.5+；英国2:1</div></div>
+      <div class="req-item"><div class="label">语言</div><div class="value">TOEFL 100+ / IELTS 6.5+</div></div>
+    </div>
+    <div class="warning-box">
+      <strong>容易踩的坑：</strong>放太多不同风格的作品以为是"展示范围广"，学校看到的是"没有自己的视觉语言"。宁可风格统一4个项目，不要风格混乱8个。
+    </div>
+    <div class="watermark" style="color:#fff;">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 6: Who fits -->
+  <div class="slide s6" style="background: #f4f2eb;">
+    <div class="slide-title">什么样的人<br><span class="red">天生适合</span>平面设计</div>
+    <ul class="trait-list">
+      <li>对字体有执念——看到招牌字间距不对会难受</li>
+      <li>比起"颜色不好看"，更受不了"排版不对齐"</li>
+      <li>喜欢买书，买的时候会看印刷质量和纸张手感</li>
+      <li>去展览不只看内容，还会研究展签、导览手册的设计</li>
+      <li>能接受在一个字母的曲线上花一整周——而且觉得正常</li>
+      <li>想做"有态度的设计"，不只是"客户让做什么就做什么"</li>
+    </ul>
+    <div class="note">如果更喜欢做交互原型和用户测试，看交互设计。更喜欢编程和装置，看数媒。平面的核心——你得热爱"视觉"这件事本身。</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- D Slide 7: Career -->
+  <div class="slide s7" style="background: #f4f2eb;">
+    <div class="slide-title">就业——<span class="red">现实情况</span></div>
+    <div class="intro-text">先泼冷水：纯平面起薪在设计类里不算高。但天花板不低，尤其品牌方向。</div>
+    <div class="salary-section">
+      <div class="sec-title">美国应届</div>
+      <div class="salary-item"><span class="role">Graphic Designer</span><span class="pay">$60-90K/年</span></div>
+      <div class="salary-item"><span class="role">Brand Designer</span><span class="pay">$75-110K/年</span></div>
+      <div class="salary-item"><span class="role">Art Director（3-5年）</span><span class="pay">$100-150K/年</span></div>
+      <div class="salary-item"><span class="role">Type Designer</span><span class="pay">小众但稀缺</span></div>
+      <div class="salary-item"><span class="role">Editorial Designer</span><span class="pay">出版缩但品质需求涨</span></div>
+    </div>
+    <div class="salary-section">
+      <div class="sec-title">回国</div>
+      <div class="salary-item"><span class="role">品牌设计师（4A/甲方）</span><span class="pay">20-35W/年</span></div>
+      <div class="salary-item"><span class="role">视觉总监（5年+）</span><span class="pay">35-60W/年</span></div>
+      <div class="salary-item"><span class="role">独立设计师/工作室</span><span class="pay">收入差异大</span></div>
+    </div>
+    <div class="trend-box"><strong>趋势：</strong>纯平面在缩，"品牌设计师"在涨。区别是品牌设计师要懂策略、懂用户、懂市场。学平面同时懂品牌策略，就业面宽很多。</div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

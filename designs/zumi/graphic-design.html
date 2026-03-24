@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>平面设计 Graphic Design — XHS Carousel</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a1a;
+    font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    color: #494949;
+    padding: 40px;
+  }
+  h1.page-title {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 32px;
+    font-weight: 700;
+  }
+  .option-row { margin-bottom: 48px; }
+  .option-label {
+    color: #a0cfa8;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+  .slides-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+  .slide-wrapper {
+    width: 270px;
+    height: 360px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 4px;
+  }
+  .slide {
+    width: 1080px;
+    height: 1440px;
+    transform: scale(0.25);
+    transform-origin: top left;
+    overflow: hidden;
+    position: relative;
+  }
+  .watermark {
+    position: absolute;
+    bottom: 24px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 22px;
+    color: #b0b0b0;
+    letter-spacing: 2px;
+    z-index: 10;
+  }
+
+  /* ==================== OPTION A: EDITORIAL ==================== */
+  .a .slide { background: #f4f2eb; }
+
+  .a .s1 {
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: flex-start; padding: 80px;
+    background: #f4f2eb; position: relative;
+  }
+  .a .s1::after {
+    content: ''; position: absolute; right: 0; top: 0;
+    width: 480px; height: 100%; background: #a0cfa8;
+  }
+  .a .s1 .top-tag {
+    font-size: 36px; font-weight: 700; color: #494949;
+    letter-spacing: 6px; margin-bottom: 24px;
+    position: relative; z-index: 2;
+  }
+  .a .s1 .big-text {
+    font-size: 200px; font-weight: 900; color: #494949;
+    line-height: 1; letter-spacing: -6px;
+    position: relative; z-index: 2;
+  }
+  .a .s1 .en-text {
+    font-size: 42px; font-weight: 300; color: #a0cfa8;
+    letter-spacing: 8px; margin-top: 16px;
+    position: relative; z-index: 2;
+  }
+  .a .s1 .sub-text {
+    font-size: 32px; color: #fff; margin-top: 48px;
+    background: #494949; padding: 16px 40px; font-weight: 500;
+    letter-spacing: 2px; position: relative; z-index: 2;
+  }
+
+  .a .s2 { padding: 80px; display: flex; flex-direction: column; }
+  .a .s2 .crossed {
+    font-size: 48px; font-weight: 600; color: #ccc;
+    text-decoration: line-through; margin-bottom: 16px;
+  }
+  .a .s2 .headline {
+    font-size: 88px; font-weight: 900; color: #494949;
+    line-height: 1.15; margin-bottom: 56px;
+    border-left: 12px solid #a0cfa8; padding-left: 40px;
+  }
+  .a .s2 .cards {
+    display: flex; flex-wrap: wrap; gap: 24px; flex: 1; align-content: flex-start;
+  }
+  .a .s2 .card {
+    background: #a0cfa8; padding: 32px 40px;
+    font-size: 44px; font-weight: 800; color: #fff;
+    letter-spacing: 2px;
+  }
+  .a .s2 .card:nth-child(2) { background: #a4c699; }
+  .a .s2 .card:nth-child(3) { background: #d1e1d4; color: #494949; }
+  .a .s2 .card:nth-child(4) { background: #494949; color: #f4f2eb; }
+  .a .s2 .card:nth-child(5) { background: #f4f2eb; color: #494949; border: 3px solid #494949; }
+
+  .a .s3 { padding: 80px; background: #a0cfa8; }
+  .a .s3 .tag {
+    display: inline-block; background: #494949; color: #f4f2eb;
+    font-size: 28px; font-weight: 700; padding: 12px 32px;
+    margin-bottom: 48px; letter-spacing: 4px;
+  }
+  .a .s3 .title {
+    font-size: 88px; font-weight: 900; line-height: 1.1;
+    margin-bottom: 48px; color: #494949;
+  }
+  .a .s3 .school-list { list-style: none; }
+  .a .s3 .school-list li {
+    margin-bottom: 32px; padding-bottom: 32px;
+    border-bottom: 2px solid rgba(73,73,73,0.15);
+  }
+  .a .s3 .school-list li:last-child { border-bottom: none; }
+  .a .s3 .school-name {
+    font-size: 44px; font-weight: 800; color: #494949; margin-bottom: 4px;
+  }
+  .a .s3 .school-desc { font-size: 28px; color: rgba(73,73,73,0.6); }
+  .a .s3 .school-accent {
+    display: inline-block; background: #E8384F; color: #fff;
+    font-size: 22px; font-weight: 700; padding: 4px 16px;
+    margin-left: 12px; vertical-align: middle;
+  }
+
+  .a .s4 { padding: 80px; background: #494949; color: #f4f2eb; }
+  .a .s4 .tag {
+    display: inline-block; background: #a0cfa8; color: #494949;
+    font-size: 28px; font-weight: 700; padding: 12px 32px;
+    margin-bottom: 48px; letter-spacing: 4px;
+  }
+  .a .s4 .title {
+    font-size: 88px; font-weight: 900; line-height: 1.1;
+    margin-bottom: 56px;
+  }
+  .a .s4 .school-list { list-style: none; }
+  .a .s4 .school-list li {
+    margin-bottom: 48px; padding-bottom: 48px;
+    border-bottom: 2px solid rgba(244,242,235,0.15);
+  }
+  .a .s4 .school-list li:last-child { border-bottom: none; }
+  .a .s4 .school-name {
+    font-size: 50px; font-weight: 800; color: #a0cfa8; margin-bottom: 8px;
+  }
+  .a .s4 .school-desc { font-size: 32px; color: rgba(244,242,235,0.6); }
+
+  .a .s5 { padding: 80px; }
+  .a .s5 .title {
+    font-size: 88px; font-weight: 900; line-height: 1.1;
+    margin-bottom: 56px; color: #494949;
+  }
+  .a .s5 .req-block {
+    background: #a0cfa8; padding: 40px 48px; margin-bottom: 24px;
+  }
+  .a .s5 .req-block.alt { background: #d1e1d4; }
+  .a .s5 .req-block.dark { background: #494949; color: #f4f2eb; }
+  .a .s5 .req-block.light { background: #f4f2eb; border: 3px solid #d1e1d4; }
+  .a .s5 .req-label {
+    font-size: 30px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px;
+  }
+  .a .s5 .req-value { font-size: 36px; font-weight: 500; }
+
+  .a .s6 { padding: 80px; background: #d1e1d4; }
+  .a .s6 .title {
+    font-size: 88px; font-weight: 900; line-height: 1.1;
+    margin-bottom: 64px; color: #494949;
+  }
+  .a .s6 .profile-item {
+    font-size: 38px; font-weight: 600; color: #494949;
+    padding: 32px 0; border-bottom: 3px solid rgba(73,73,73,0.15);
+    padding-left: 48px; position: relative; line-height: 1.4;
+  }
+  .a .s6 .profile-item::before {
+    content: ''; position: absolute; left: 0; top: 50%;
+    transform: translateY(-50%); width: 20px; height: 20px;
+    background: #494949;
+  }
+
+  .a .s7 { padding: 80px; position: relative; }
+  .a .s7::before {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 360px; background: #a0cfa8; opacity: 0.2;
+  }
+  .a .s7 .title {
+    font-size: 88px; font-weight: 900; line-height: 1.1;
+    margin-bottom: 56px; color: #494949; position: relative; z-index: 2;
+  }
+  .a .s7 .career-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 28px 0; border-bottom: 2px solid rgba(73,73,73,0.12);
+    position: relative; z-index: 2;
+  }
+  .a .s7 .career-name { font-size: 44px; font-weight: 700; color: #494949; }
+  .a .s7 .career-salary { font-size: 32px; font-weight: 500; color: #a0cfa8; }
+  .a .s7 .china-section {
+    margin-top: 48px; padding: 40px; background: #494949;
+    position: relative; z-index: 2;
+  }
+  .a .s7 .china-section .career-name { color: #f4f2eb; }
+  .a .s7 .china-section .career-salary { color: #a0cfa8; }
+
+  /* ==================== OPTION B: INFOGRAPHIC ==================== */
+  .b .slide { background: #f4f2eb; }
+
+  .b .s1 {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #f4f2eb 40%, #a0cfa8 40%, #a0cfa8 60%, #d1e1d4 60%);
+  }
+  .b .s1 .badge {
+    background: #494949; color: #f4f2eb; font-size: 32px; font-weight: 700;
+    padding: 16px 48px; border-radius: 40px; margin-bottom: 48px; letter-spacing: 4px;
+  }
+  .b .s1 .big-text {
+    font-size: 180px; font-weight: 900; color: #494949; line-height: 1;
+  }
+  .b .s1 .en-text {
+    font-size: 36px; font-weight: 400; color: #fff;
+    letter-spacing: 6px; margin-top: 16px; margin-bottom: 48px;
+  }
+  .b .s1 .sub-text {
+    font-size: 30px; color: #494949; font-weight: 500;
+    background: #fff; padding: 16px 40px; border-radius: 24px;
+  }
+
+  .b .s2 { padding: 72px; }
+  .b .s2 .section-num {
+    font-size: 120px; font-weight: 900; color: #d1e1d4; line-height: 1; margin-bottom: 8px;
+  }
+  .b .s2 .crossed {
+    font-size: 36px; font-weight: 600; color: #ccc;
+    text-decoration: line-through; margin-bottom: 8px;
+  }
+  .b .s2 .headline {
+    font-size: 60px; font-weight: 800; color: #494949;
+    line-height: 1.2; margin-bottom: 48px;
+  }
+  .b .s2 .tag-grid {
+    display: flex; flex-wrap: wrap; gap: 20px;
+  }
+  .b .s2 .tag-pill {
+    background: #fff; border: 3px solid #a0cfa8; border-radius: 24px;
+    padding: 28px 36px; text-align: center;
+    font-size: 38px; font-weight: 700; color: #494949;
+  }
+  .b .s2 .tag-pill:nth-child(1) { background: #a0cfa8; color: #fff; border-color: #a0cfa8; }
+
+  .b .s3 { padding: 64px; }
+  .b .s3 .header {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 48px;
+  }
+  .b .s3 .flag {
+    background: #E8384F; color: #fff; font-size: 24px; font-weight: 700;
+    padding: 8px 24px; border-radius: 8px;
+  }
+  .b .s3 .section-title { font-size: 64px; font-weight: 900; color: #494949; }
+  .b .s3 .school-card {
+    background: #fff; border-radius: 20px; padding: 32px 36px;
+    margin-bottom: 18px; display: flex; gap: 24px; align-items: flex-start;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .b .s3 .school-num {
+    background: #a0cfa8; color: #fff; font-size: 28px; font-weight: 800;
+    width: 56px; height: 56px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .b .s3 .school-info { flex: 1; }
+  .b .s3 .school-name { font-size: 36px; font-weight: 800; color: #494949; margin-bottom: 4px; }
+  .b .s3 .school-desc { font-size: 24px; color: #888; }
+
+  .b .s4 { padding: 64px; background: #d1e1d4; }
+  .b .s4 .header {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 48px;
+  }
+  .b .s4 .flag {
+    background: #494949; color: #f4f2eb; font-size: 24px; font-weight: 700;
+    padding: 8px 24px; border-radius: 8px;
+  }
+  .b .s4 .section-title { font-size: 64px; font-weight: 900; color: #494949; }
+  .b .s4 .school-card {
+    background: #fff; border-radius: 20px; padding: 40px 44px;
+    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .b .s4 .school-name { font-size: 44px; font-weight: 800; color: #494949; margin-bottom: 8px; }
+  .b .s4 .school-desc { font-size: 28px; color: #888; }
+
+  .b .s5 { padding: 64px; }
+  .b .s5 .section-num {
+    font-size: 120px; font-weight: 900; color: #d1e1d4; line-height: 1; margin-bottom: 8px;
+  }
+  .b .s5 .title { font-size: 72px; font-weight: 900; color: #494949; margin-bottom: 48px; }
+  .b .s5 .info-row {
+    display: flex; align-items: center; gap: 24px;
+    margin-bottom: 24px; background: #fff;
+    border-radius: 16px; padding: 28px 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .b .s5 .info-icon {
+    width: 64px; height: 64px; border-radius: 16px;
+    background: #a0cfa8; display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 800; color: #fff; flex-shrink: 0;
+  }
+  .b .s5 .info-label { font-size: 28px; font-weight: 700; color: #494949; }
+  .b .s5 .info-value { font-size: 26px; color: #888; }
+
+  .b .s6 { padding: 64px; }
+  .b .s6 .section-num {
+    font-size: 120px; font-weight: 900; color: #d1e1d4; line-height: 1; margin-bottom: 8px;
+  }
+  .b .s6 .title { font-size: 72px; font-weight: 900; color: #494949; margin-bottom: 48px; }
+  .b .s6 .profile-card {
+    background: #fff; border-radius: 20px; padding: 36px 40px;
+    margin-bottom: 20px; font-size: 34px; font-weight: 600; color: #494949;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); border-left: 6px solid #a0cfa8;
+    line-height: 1.4;
+  }
+
+  .b .s7 { padding: 64px; }
+  .b .s7 .section-num {
+    font-size: 120px; font-weight: 900; color: #d1e1d4; line-height: 1; margin-bottom: 8px;
+  }
+  .b .s7 .title { font-size: 72px; font-weight: 900; color: #494949; margin-bottom: 40px; }
+  .b .s7 .career-card {
+    background: #fff; border-radius: 16px; padding: 32px 36px;
+    margin-bottom: 16px; display: flex; justify-content: space-between;
+    align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .b .s7 .career-name { font-size: 34px; font-weight: 700; color: #494949; }
+  .b .s7 .career-salary {
+    font-size: 26px; font-weight: 600; color: #a0cfa8;
+    background: #d1e1d4; padding: 8px 20px; border-radius: 20px;
+  }
+  .b .s7 .china-card {
+    background: #494949; border-radius: 16px; padding: 36px; margin-top: 24px;
+  }
+  .b .s7 .china-card .career-name { color: #f4f2eb; }
+  .b .s7 .china-card .career-salary { background: #a0cfa8; color: #fff; }
+
+  /* ==================== OPTION C: MINIMAL ==================== */
+  .c .slide { background: #f4f2eb; }
+
+  .c .s1 {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 100px; position: relative;
+  }
+  .c .s1::before {
+    content: ''; position: absolute; top: 60px; right: 60px;
+    width: 240px; height: 3px; background: #a0cfa8;
+  }
+  .c .s1::after {
+    content: ''; position: absolute; top: 60px; right: 60px;
+    width: 3px; height: 240px; background: #a0cfa8;
+  }
+  .c .s1 .small-text {
+    font-size: 32px; font-weight: 500; color: #a0cfa8;
+    letter-spacing: 6px; margin-bottom: 24px;
+  }
+  .c .s1 .big-text {
+    font-size: 180px; font-weight: 900; color: #494949;
+    line-height: 0.95; letter-spacing: -4px;
+  }
+  .c .s1 .en-text {
+    font-size: 32px; font-weight: 300; color: #888;
+    letter-spacing: 8px; margin-top: 24px;
+  }
+  .c .s1 .divider { width: 120px; height: 3px; background: #a0cfa8; margin: 40px 0; }
+  .c .s1 .sub-text { font-size: 30px; color: #888; letter-spacing: 2px; }
+
+  .c .s2 { padding: 100px; display: flex; flex-direction: column; justify-content: center; }
+  .c .s2 .crossed {
+    font-size: 36px; font-weight: 500; color: #ccc;
+    text-decoration: line-through; margin-bottom: 16px;
+  }
+  .c .s2 .headline {
+    font-size: 80px; font-weight: 800; color: #494949;
+    line-height: 1.2; margin-bottom: 80px;
+  }
+  .c .s2 .divider { width: 80px; height: 2px; background: #a0cfa8; margin-bottom: 64px; }
+  .c .s2 .tags { display: flex; flex-wrap: wrap; gap: 24px; }
+  .c .s2 .tag {
+    font-size: 36px; font-weight: 500; color: #494949;
+    padding: 16px 0; border-bottom: 2px solid #d1e1d4;
+  }
+  .c .s2 .tag-sep { font-size: 36px; color: #d1e1d4; padding: 16px 0; }
+
+  .c .s3 { padding: 100px; display: flex; flex-direction: column; }
+  .c .s3 .top-label {
+    font-size: 24px; font-weight: 600; color: #a0cfa8;
+    letter-spacing: 6px; margin-bottom: 24px;
+  }
+  .c .s3 .title { font-size: 72px; font-weight: 900; color: #494949; margin-bottom: 48px; }
+  .c .s3 .school-item { padding: 28px 0; border-bottom: 1px solid #d1e1d4; }
+  .c .s3 .school-item:last-child { border-bottom: none; }
+  .c .s3 .school-name { font-size: 38px; font-weight: 700; color: #494949; margin-bottom: 6px; }
+  .c .s3 .school-desc { font-size: 26px; color: #999; }
+
+  .c .s4 { padding: 100px; display: flex; flex-direction: column; }
+  .c .s4 .top-label {
+    font-size: 24px; font-weight: 600; color: #a0cfa8;
+    letter-spacing: 6px; margin-bottom: 24px;
+  }
+  .c .s4 .title { font-size: 72px; font-weight: 900; color: #494949; margin-bottom: 64px; }
+  .c .s4 .school-item { padding: 40px 0; border-bottom: 1px solid #d1e1d4; }
+  .c .s4 .school-item:last-child { border-bottom: none; }
+  .c .s4 .school-name { font-size: 44px; font-weight: 700; color: #494949; margin-bottom: 8px; }
+  .c .s4 .school-desc { font-size: 28px; color: #999; }
+
+  .c .s5 { padding: 100px; display: flex; flex-direction: column; justify-content: center; }
+  .c .s5 .title { font-size: 72px; font-weight: 900; color: #494949; margin-bottom: 64px; }
+  .c .s5 .req-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 28px 0; border-bottom: 1px solid #d1e1d4;
+  }
+  .c .s5 .req-label { font-size: 32px; font-weight: 700; color: #494949; }
+  .c .s5 .req-value { font-size: 28px; color: #888; text-align: right; max-width: 560px; }
+
+  .c .s6 { padding: 100px; display: flex; flex-direction: column; justify-content: center; }
+  .c .s6 .title { font-size: 72px; font-weight: 900; color: #494949; margin-bottom: 64px; }
+  .c .s6 .divider { width: 80px; height: 2px; background: #a0cfa8; margin-bottom: 64px; }
+  .c .s6 .profile-item {
+    font-size: 34px; font-weight: 500; color: #494949;
+    padding: 28px 0; border-bottom: 1px solid #d1e1d4; line-height: 1.5;
+  }
+
+  .c .s7 { padding: 100px; display: flex; flex-direction: column; justify-content: center; }
+  .c .s7 .title { font-size: 72px; font-weight: 900; color: #494949; margin-bottom: 64px; }
+  .c .s7 .career-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 28px 0; border-bottom: 1px solid #d1e1d4;
+  }
+  .c .s7 .career-name { font-size: 38px; font-weight: 600; color: #494949; }
+  .c .s7 .career-salary { font-size: 28px; color: #a0cfa8; }
+  .c .s7 .china-section {
+    margin-top: 48px; padding-top: 40px; border-top: 3px solid #494949;
+  }
+  .c .s7 .china-label {
+    font-size: 24px; font-weight: 600; color: #a0cfa8;
+    letter-spacing: 4px; margin-bottom: 24px;
+  }
+</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script></head>
+<body>
+<h1 class="page-title">平面设计 Graphic Design - XHS Carousel Post</h1>
+
+<!-- ==================== OPTION A: EDITORIAL ==================== -->
+<div class="option-row">
+  <div class="option-label">Option A: Editorial</div>
+  <div class="slides-grid">
+
+    <div class="slide-wrapper a"><div class="slide s1">
+      <div class="top-tag">一篇说清</div>
+      <div class="big-text">平面设计</div>
+      <div class="en-text">Graphic Design</div>
+      <div class="sub-text">视觉传达的整套系统</div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper a"><div class="slide s2">
+      <div class="crossed">不只是做海报</div>
+      <div class="headline">视觉传达的<br>整套系统</div>
+      <div class="cards">
+        <div class="card">品牌设计</div>
+        <div class="card">字体设计</div>
+        <div class="card">编辑设计</div>
+        <div class="card">包装设计</div>
+        <div class="card">信息设计</div>
+      </div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper a"><div class="slide s3">
+      <div class="tag">TOP SCHOOLS</div>
+      <div class="title">美国院校</div>
+      <ul class="school-list">
+        <li><div class="school-name">Yale MFA<span class="school-accent">录取率~3%</span></div><div class="school-desc">全美第一</div></li>
+        <li><div class="school-name">RISD</div><div class="school-desc">手工艺+数字，重视过程</div></li>
+        <li><div class="school-name">SVA MFA Design</div><div class="school-desc">纽约，行业资源极丰富</div></li>
+        <li><div class="school-name">Cranbrook 2D</div><div class="school-desc">实验性极强，自由度高</div></li>
+        <li><div class="school-name">CalArts</div><div class="school-desc">影视+设计交叉</div></li>
+      </ul>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper a"><div class="slide s4">
+      <div class="tag">TOP SCHOOLS</div>
+      <div class="title">英国院校</div>
+      <ul class="school-list">
+        <li><div class="school-name">RCA Visual Communication</div><div class="school-desc">全球顶尖</div></li>
+        <li><div class="school-name">CSM Graphic Communication</div><div class="school-desc">实验性+概念性</div></li>
+        <li><div class="school-name">LCC Graphic & Media Design</div><div class="school-desc">偏媒体</div></li>
+      </ul>
+      <div class="watermark" style="color:rgba(244,242,235,0.4)">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper a"><div class="slide s5">
+      <div class="title">申请难度</div>
+      <div class="req-block">
+        <div class="req-label">核心理念</div>
+        <div class="req-value">视觉系统是核心</div>
+      </div>
+      <div class="req-block alt">
+        <div class="req-label">基本功</div>
+        <div class="req-value">InDesign / Illustrator / 印刷工艺</div>
+      </div>
+      <div class="req-block dark">
+        <div class="req-label">GPA</div>
+        <div class="req-value">美国TOP 3.5+ / 英国 2:1</div>
+      </div>
+      <div class="req-block light">
+        <div class="req-label">语言</div>
+        <div class="req-value">TOEFL 100+ / IELTS 6.5+</div>
+      </div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper a"><div class="slide s6">
+      <div class="title">适合你吗</div>
+      <div class="profile-item">对字体、排版、色彩有执念</div>
+      <div class="profile-item">字间距不对比颜色不好看更难受</div>
+      <div class="profile-item">喜欢买书、看展、收集印刷品</div>
+      <div class="profile-item">能接受在一个字母上花一周时间</div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper a"><div class="slide s7">
+      <div class="title">就业方向</div>
+      <div class="career-item"><span class="career-name">Graphic Designer</span><span class="career-salary">$60-90K</span></div>
+      <div class="career-item"><span class="career-name">Brand Designer / Art Director</span><span class="career-salary"></span></div>
+      <div class="career-item"><span class="career-name">Type Designer</span><span class="career-salary"></span></div>
+      <div class="career-item"><span class="career-name">Editorial Designer</span><span class="career-salary"></span></div>
+      <div class="china-section">
+        <div class="career-item"><span class="career-name">品牌设计师/视觉总监</span><span class="career-salary">25-40W</span></div>
+      </div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ==================== OPTION B: INFOGRAPHIC ==================== -->
+<div class="option-row">
+  <div class="option-label">Option B: Infographic</div>
+  <div class="slides-grid">
+
+    <div class="slide-wrapper b"><div class="slide s1">
+      <div class="badge">一篇说清</div>
+      <div class="big-text">平面设计</div>
+      <div class="en-text">Graphic Design</div>
+      <div class="sub-text">视觉传达的整套系统</div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper b"><div class="slide s2">
+      <div class="section-num">01</div>
+      <div class="crossed">不只是做海报</div>
+      <div class="headline">视觉传达的整套系统</div>
+      <div class="tag-grid">
+        <div class="tag-pill">品牌设计</div>
+        <div class="tag-pill">字体设计</div>
+        <div class="tag-pill">编辑设计</div>
+        <div class="tag-pill">包装设计</div>
+        <div class="tag-pill">信息设计</div>
+      </div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper b"><div class="slide s3">
+      <div class="header">
+        <div class="flag">USA</div>
+        <div class="section-title">美国Top院校</div>
+      </div>
+      <div class="school-card"><div class="school-num">1</div><div class="school-info"><div class="school-name">Yale MFA</div><div class="school-desc">全美第一，录取率~3%</div></div></div>
+      <div class="school-card"><div class="school-num">2</div><div class="school-info"><div class="school-name">RISD</div><div class="school-desc">手工艺+数字，重视过程</div></div></div>
+      <div class="school-card"><div class="school-num">3</div><div class="school-info"><div class="school-name">SVA MFA Design</div><div class="school-desc">纽约，行业资源极丰富</div></div></div>
+      <div class="school-card"><div class="school-num">4</div><div class="school-info"><div class="school-name">Cranbrook 2D</div><div class="school-desc">实验性极强，自由度高</div></div></div>
+      <div class="school-card"><div class="school-num">5</div><div class="school-info"><div class="school-name">CalArts</div><div class="school-desc">影视+设计交叉</div></div></div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper b"><div class="slide s4">
+      <div class="header">
+        <div class="flag">UK</div>
+        <div class="section-title">英国Top院校</div>
+      </div>
+      <div class="school-card"><div class="school-name">RCA Visual Communication</div><div class="school-desc">全球顶尖</div></div>
+      <div class="school-card"><div class="school-name">CSM Graphic Communication</div><div class="school-desc">实验性+概念性</div></div>
+      <div class="school-card"><div class="school-name">LCC Graphic & Media Design</div><div class="school-desc">偏媒体</div></div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper b"><div class="slide s5">
+      <div class="section-num">04</div>
+      <div class="title">申请难度</div>
+      <div class="info-row"><div class="info-icon">核</div><div><div class="info-label">核心理念</div><div class="info-value">视觉系统是核心</div></div></div>
+      <div class="info-row"><div class="info-icon">工</div><div><div class="info-label">基本功</div><div class="info-value">InDesign / Illustrator / 印刷工艺</div></div></div>
+      <div class="info-row"><div class="info-icon">G</div><div><div class="info-label">GPA</div><div class="info-value">美国TOP 3.5+ / 英国 2:1</div></div></div>
+      <div class="info-row"><div class="info-icon">语</div><div><div class="info-label">语言</div><div class="info-value">TOEFL 100+ / IELTS 6.5+</div></div></div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper b"><div class="slide s6">
+      <div class="section-num">05</div>
+      <div class="title">适合你吗</div>
+      <div class="profile-card">对字体、排版、色彩有执念</div>
+      <div class="profile-card">字间距不对比颜色不好看更难受</div>
+      <div class="profile-card">喜欢买书、看展、收集印刷品</div>
+      <div class="profile-card">能接受在一个字母上花一周时间</div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper b"><div class="slide s7">
+      <div class="section-num">06</div>
+      <div class="title">就业方向</div>
+      <div class="career-card"><span class="career-name">Graphic Designer</span><span class="career-salary">$60-90K</span></div>
+      <div class="career-card"><span class="career-name">Brand Designer / Art Director</span><span class="career-salary"></span></div>
+      <div class="career-card"><span class="career-name">Type Designer</span><span class="career-salary"></span></div>
+      <div class="career-card"><span class="career-name">Editorial Designer</span><span class="career-salary"></span></div>
+      <div class="china-card">
+        <div class="career-card" style="background:transparent;box-shadow:none;padding:0;margin:0"><span class="career-name">品牌设计师/视觉总监</span><span class="career-salary">25-40W</span></div>
+      </div>
+      <div class="watermark" style="color:rgba(180,180,180,0.6)">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ==================== OPTION C: MINIMAL ==================== -->
+<div class="option-row">
+  <div class="option-label">Option C: Minimal</div>
+  <div class="slides-grid">
+
+    <div class="slide-wrapper c"><div class="slide s1">
+      <div class="small-text">一篇说清</div>
+      <div class="big-text">平面<br>设计</div>
+      <div class="en-text">Graphic Design</div>
+      <div class="divider"></div>
+      <div class="sub-text">视觉传达的整套系统</div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper c"><div class="slide s2">
+      <div class="crossed">不只是做海报</div>
+      <div class="headline">视觉传达的<br>整套系统</div>
+      <div class="divider"></div>
+      <div class="tags">
+        <span class="tag">品牌设计</span><span class="tag-sep">/</span>
+        <span class="tag">字体设计</span><span class="tag-sep">/</span>
+        <span class="tag">编辑设计</span><span class="tag-sep">/</span>
+        <span class="tag">包装设计</span><span class="tag-sep">/</span>
+        <span class="tag">信息设计</span>
+      </div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper c"><div class="slide s3">
+      <div class="top-label">TOP SCHOOLS</div>
+      <div class="title">美国院校</div>
+      <div class="school-item"><div class="school-name">Yale MFA</div><div class="school-desc">全美第一，录取率~3%</div></div>
+      <div class="school-item"><div class="school-name">RISD</div><div class="school-desc">手工艺+数字，重视过程</div></div>
+      <div class="school-item"><div class="school-name">SVA MFA Design</div><div class="school-desc">纽约，行业资源极丰富</div></div>
+      <div class="school-item"><div class="school-name">Cranbrook 2D</div><div class="school-desc">实验性极强，自由度高</div></div>
+      <div class="school-item"><div class="school-name">CalArts</div><div class="school-desc">影视+设计交叉</div></div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper c"><div class="slide s4">
+      <div class="top-label">TOP SCHOOLS</div>
+      <div class="title">英国院校</div>
+      <div class="school-item"><div class="school-name">RCA Visual Communication</div><div class="school-desc">全球顶尖</div></div>
+      <div class="school-item"><div class="school-name">CSM Graphic Communication</div><div class="school-desc">实验性+概念性</div></div>
+      <div class="school-item"><div class="school-name">LCC Graphic & Media Design</div><div class="school-desc">偏媒体</div></div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper c"><div class="slide s5">
+      <div class="title">申请难度</div>
+      <div class="req-item"><span class="req-label">核心理念</span><span class="req-value">视觉系统是核心</span></div>
+      <div class="req-item"><span class="req-label">基本功</span><span class="req-value">InDesign / Illustrator / 印刷工艺</span></div>
+      <div class="req-item"><span class="req-label">GPA</span><span class="req-value">美国TOP 3.5+ / 英国 2:1</span></div>
+      <div class="req-item"><span class="req-label">语言</span><span class="req-value">TOEFL 100+ / IELTS 6.5+</span></div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper c"><div class="slide s6">
+      <div class="title">适合你吗</div>
+      <div class="divider"></div>
+      <div class="profile-item">对字体、排版、色彩有执念</div>
+      <div class="profile-item">字间距不对比颜色不好看更难受</div>
+      <div class="profile-item">喜欢买书、看展、收集印刷品</div>
+      <div class="profile-item">能接受在一个字母上花一周时间</div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+    <div class="slide-wrapper c"><div class="slide s7">
+      <div class="title">就业方向</div>
+      <div class="career-item"><span class="career-name">Graphic Designer</span><span class="career-salary">$60-90K</span></div>
+      <div class="career-item"><span class="career-name">Brand Designer / Art Director</span><span class="career-salary"></span></div>
+      <div class="career-item"><span class="career-name">Type Designer</span><span class="career-salary"></span></div>
+      <div class="career-item"><span class="career-name">Editorial Designer</span><span class="career-salary"></span></div>
+      <div class="china-section">
+        <div class="china-label">回国方向</div>
+        <div class="career-item"><span class="career-name">品牌设计师/视觉总监</span><span class="career-salary">25-40W</span></div>
+      </div>
+      <div class="watermark">蕉蕉椒椒（作品集版）</div>
+    </div></div>
+
+  </div>
+</div>
+
+</body>
+</html>

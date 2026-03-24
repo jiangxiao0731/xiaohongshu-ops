@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>交互设计 V2 — Option G: Green Immersive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #111;
+    font-family: "Inter", "Noto Sans SC", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    padding: 20px;
+  }
+  .slides-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .slide {
+    width: 1080px;
+    height: 1440px;
+    overflow: hidden;
+    position: relative;
+  }
+  .watermark {
+    position: absolute;
+    bottom: 28px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+    z-index: 10;
+  }
+
+  /* ==================== OPTION G: GREEN IMMERSIVE ==================== */
+
+  /* G - Slide 1: Cover — Deep green with layered tones */
+  .s1 {
+    background: #2d5a3d;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .s1 .cover-top {
+    padding: 72px 80px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .s1 .cover-top .tag-line {
+    font-size: 22px;
+    font-weight: 600;
+    color: #d1e1d4;
+    letter-spacing: 10px;
+    border: 2px solid #d1e1d4;
+    padding: 10px 24px;
+  }
+  .s1 .cover-top .brand {
+    font-size: 20px;
+    color: rgba(209, 225, 212, 0.4);
+    letter-spacing: 2px;
+  }
+  .s1 .cover-hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 80px;
+  }
+  .s1 .cover-hero .cn {
+    font-size: 240px;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -10px;
+    color: #f4f2eb;
+    margin-bottom: 24px;
+  }
+  .s1 .cover-hero .en {
+    font-size: 42px;
+    font-weight: 300;
+    color: #a0cfa8;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+  }
+  .s1 .cover-bottom {
+    background: #a4c699;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .s1 .cover-bottom .sub {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a3324;
+    letter-spacing: 3px;
+  }
+  .s1 .cover-bottom .num {
+    font-size: 64px;
+    font-weight: 900;
+    color: rgba(26, 51, 36, 0.2);
+    line-height: 1;
+  }
+  .s1 .watermark { color: rgba(209, 225, 212, 0.2); }
+
+  /* G - Content Slide */
+  .content-slide {
+    background: #f4f2eb;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Green side rail */
+  .content-slide .side-rail {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 12px;
+    background: linear-gradient(to bottom, #2d5a3d, #a0cfa8);
+  }
+  .content-slide .slide-header {
+    background: #2d5a3d;
+    padding: 48px 80px 48px 92px;
+    position: relative;
+  }
+  .content-slide .slide-header .num {
+    font-size: 18px;
+    font-weight: 700;
+    color: #a0cfa8;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+  }
+  .content-slide .slide-header .title {
+    font-size: 54px;
+    font-weight: 800;
+    color: #f4f2eb;
+    line-height: 1.2;
+  }
+  .content-slide .slide-body {
+    flex: 1;
+    padding: 40px 80px 40px 92px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .content-slide .body-text {
+    font-size: 26px;
+    line-height: 1.75;
+    color: #3a3a3a;
+    margin-bottom: 28px;
+  }
+  .content-slide .body-text strong {
+    color: #FF0043;
+    font-weight: 700;
+  }
+  .content-slide .watermark { color: #c0bdb6; }
+
+  /* Section label - green pill */
+  .green-label {
+    display: inline-block;
+    background: #2d5a3d;
+    color: #d1e1d4;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px 28px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    margin-top: 12px;
+  }
+
+  /* Item with green left dot */
+  .g-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid #e0ddd4;
+  }
+  .g-item .g-dot {
+    width: 10px;
+    height: 10px;
+    background: #a4c699;
+    border-radius: 0;
+    flex-shrink: 0;
+    margin-top: 10px;
+  }
+  .g-item .g-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: #2d5a3d;
+    min-width: 140px;
+    flex-shrink: 0;
+  }
+  .g-item .g-desc {
+    font-size: 22px;
+    line-height: 1.6;
+    color: #666;
+    flex: 1;
+  }
+
+  /* School card - green accent */
+  .g-school {
+    margin-bottom: 12px;
+    background: #fff;
+    border-left: 6px solid #a4c699;
+    padding: 20px 24px;
+  }
+  .g-school .g-school-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: #2d5a3d;
+    margin-bottom: 4px;
+  }
+  .g-school .g-school-name .tag {
+    display: inline-block;
+    background: #2d5a3d;
+    color: #d1e1d4;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 2px 12px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .g-school .g-school-desc {
+    font-size: 21px;
+    line-height: 1.6;
+    color: #777;
+  }
+
+  /* Green highlight box */
+  .g-highlight {
+    background: #2d5a3d;
+    color: #f4f2eb;
+    padding: 24px 32px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+
+  /* Light green box */
+  .g-light-box {
+    background: #d1e1d4;
+    color: #2d5a3d;
+    padding: 24px 32px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+
+  /* Req grid */
+  .g-req-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .g-req {
+    padding: 20px;
+    background: #fff;
+    border-top: 4px solid #a4c699;
+  }
+  .g-req .label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2d5a3d;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .g-req .value {
+    font-size: 22px;
+    color: #494949;
+    line-height: 1.5;
+  }
+
+  /* Salary */
+  .g-salary-section { margin-bottom: 16px; }
+  .g-salary-section .sec-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d5a3d;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #a4c699;
+    display: inline-block;
+  }
+  .g-salary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0ddd4;
+    font-size: 24px;
+  }
+  .g-salary-row .role { color: #3a3a3a; font-weight: 500; }
+  .g-salary-row .pay { color: #FF0043; font-weight: 800; }
+
+  /* Trait list */
+  .g-trait {
+    font-size: 24px;
+    line-height: 1.6;
+    color: #3a3a3a;
+    padding: 16px 0 16px 28px;
+    border-bottom: 1px solid #e0ddd4;
+    position: relative;
+  }
+  .g-trait::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 24px;
+    width: 12px; height: 12px;
+    background: #a4c699;
+  }
+  .g-trait strong { color: #FF0043; font-weight: 700; }
+
+  /* Green-bg slides */
+  .green-bg-slide {
+    background: #2d5a3d;
+    display: flex;
+    flex-direction: column;
+  }
+  .green-bg-slide .slide-header {
+    background: #1a3324;
+    padding: 48px 80px;
+  }
+  .green-bg-slide .slide-header .num {
+    font-size: 18px;
+    font-weight: 700;
+    color: #a0cfa8;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+  }
+  .green-bg-slide .slide-header .title {
+    font-size: 54px;
+    font-weight: 800;
+    color: #f4f2eb;
+    line-height: 1.2;
+  }
+  .green-bg-slide .slide-body {
+    flex: 1;
+    padding: 40px 80px;
+    display: flex;
+    flex-direction: column;
+  }
+  .green-bg-slide .watermark { color: rgba(209, 225, 212, 0.2); }
+
+  /* Green bg school cards */
+  .g-school-dark {
+    margin-bottom: 12px;
+    background: rgba(244, 242, 235, 0.08);
+    border-left: 6px solid #a0cfa8;
+    padding: 20px 24px;
+  }
+  .g-school-dark .g-school-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: #f4f2eb;
+    margin-bottom: 4px;
+  }
+  .g-school-dark .g-school-name .tag {
+    display: inline-block;
+    background: #FF0043;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 2px 12px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .g-school-dark .g-school-desc {
+    font-size: 21px;
+    line-height: 1.6;
+    color: #a0cfa8;
+  }
+
+  /* Green bg section label */
+  .green-label-light {
+    display: inline-block;
+    background: #a0cfa8;
+    color: #1a3324;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px 28px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    margin-top: 12px;
+  }
+
+  /* Green bg trait */
+  .g-trait-dark {
+    font-size: 24px;
+    line-height: 1.6;
+    color: #d1e1d4;
+    padding: 16px 0 16px 28px;
+    border-bottom: 1px solid rgba(160, 207, 168, 0.15);
+    position: relative;
+  }
+  .g-trait-dark::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 24px;
+    width: 12px; height: 12px;
+    background: #a0cfa8;
+  }
+  .g-trait-dark strong { color: #FF0043; font-weight: 700; }
+
+  .g-highlight-light {
+    background: #a0cfa8;
+    color: #1a3324;
+    padding: 24px 32px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slides-stack">
+
+  <!-- G Slide 1: Cover -->
+  <div class="slide s1">
+    <div class="cover-top">
+      <div class="tag-line">一篇说清</div>
+      <div class="brand">蕉蕉椒椒</div>
+    </div>
+    <div class="cover-hero">
+      <div class="cn">交互<br>设计</div>
+      <div class="en">Interaction Design</div>
+    </div>
+    <div class="cover-bottom">
+      <div class="sub">从专业介绍到就业全解析</div>
+      <div class="num">7P</div>
+    </div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- G Slide 2: What is it (light bg) -->
+  <div class="slide content-slide">
+    <div class="side-rail"></div>
+    <div class="slide-header">
+      <div class="num">01 / 06</div>
+      <div class="title">交互设计到底<br>是干嘛的？</div>
+    </div>
+    <div class="slide-body">
+      <div class="body-text">很多人一听"交互设计"就觉得是画UI界面的，其实不是。交互设计的核心是——你用一个产品的时候，为什么觉得好用或者难用？这个"为什么"就是交互设计在研究的事。简单说，就是解决<strong>"人和产品之间的问题"</strong>。</div>
+      <div class="green-label">细分方向</div>
+      <div class="g-item">
+        <div class="g-dot"></div>
+        <div class="g-name">UX设计</div>
+        <div class="g-desc">用户体验，最主流的方向，大厂都在招</div>
+      </div>
+      <div class="g-item">
+        <div class="g-dot"></div>
+        <div class="g-name">UI设计</div>
+        <div class="g-desc">视觉界面，偏好看，但现在单做UI越来越卷</div>
+      </div>
+      <div class="g-item">
+        <div class="g-dot"></div>
+        <div class="g-name">服务设计</div>
+        <div class="g-desc">不只看一个APP，看整个服务链路</div>
+      </div>
+      <div class="g-item">
+        <div class="g-dot"></div>
+        <div class="g-name">交互装置</div>
+        <div class="g-desc">做实体的东西，传感器、Arduino、物理交互</div>
+      </div>
+    </div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- G Slide 3: US Schools (green bg) -->
+  <div class="slide green-bg-slide">
+    <div class="slide-header">
+      <div class="num">02 / 06</div>
+      <div class="title">热门学校 — 美国</div>
+    </div>
+    <div class="slide-body">
+      <div class="g-school-dark">
+        <div class="g-school-name">CMU MHCI <span class="tag">录取率~8%</span></div>
+        <div class="g-school-desc">交互设计天花板，没有之一。极其重视research，你得能做用户研究、能写论文、能做原型，三件套缺一不可。适合学霸型选手。</div>
+      </div>
+      <div class="g-school-dark">
+        <div class="g-school-name">NYU IDM</div>
+        <div class="g-school-desc">在纽约，这一点就赢了一半。技术和设计都要会一点，氛围比较自由。毕业在纽约找工作方便。</div>
+      </div>
+      <div class="g-school-dark">
+        <div class="g-school-name">Parsons MFA D&T</div>
+        <div class="g-school-desc">偏综合，什么都能做，但也意味着你得自己找方向。适合自驱力强的人。</div>
+      </div>
+      <div class="g-school-dark">
+        <div class="g-school-name">RISD IDx</div>
+        <div class="g-school-desc">罗德岛，偏实体交互和工业设计底子，如果你喜欢做摸得着的东西。</div>
+      </div>
+      <div class="g-school-dark">
+        <div class="g-school-name">Georgia Tech MS-HCI</div>
+        <div class="g-school-desc">理工科背景友好，STEM项目，学术氛围浓。</div>
+      </div>
+    </div>
+    <div class="watermark" style="color:rgba(209,225,212,0.2);">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- G Slide 4: UK/EU/HK Schools (light bg) -->
+  <div class="slide content-slide">
+    <div class="side-rail"></div>
+    <div class="slide-header">
+      <div class="num">03 / 06</div>
+      <div class="title">热门学校<br>英国 / 欧洲 / 香港</div>
+    </div>
+    <div class="slide-body">
+      <div class="green-label">英国</div>
+      <div class="g-school">
+        <div class="g-school-name">RCA IDE <span class="tag" style="background:#2d5a3d;">全球第一</span></div>
+        <div class="g-school-desc">皇家艺术学院。IDE更偏创新工程，不是纯UX，别搞混了。</div>
+      </div>
+      <div class="g-school">
+        <div class="g-school-name">UAL LCC Interaction Design</div>
+        <div class="g-school-desc">伦艺交互，实验性强，作品集可以比较wild。</div>
+      </div>
+      <div class="g-school">
+        <div class="g-school-name">Glasgow GSA</div>
+        <div class="g-school-desc">格拉斯哥，性价比高，一年制。</div>
+      </div>
+      <div class="green-label">欧洲</div>
+      <div class="g-school">
+        <div class="g-school-name">TU Delft IDE（荷兰）</div>
+        <div class="g-school-desc">工科背景强，交互偏工业/产品方向，学费比英美低很多。</div>
+      </div>
+      <div class="g-school">
+        <div class="g-school-name">Aalto University（芬兰）</div>
+        <div class="g-school-desc">北欧设计风格，学费低，注重可持续设计。</div>
+      </div>
+      <div class="green-label">香港</div>
+      <div class="g-school">
+        <div class="g-school-name">PolyU School of Design</div>
+        <div class="g-school-desc">香港理工，亚洲顶尖交互设计，离大陆近，一年制。</div>
+      </div>
+    </div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- G Slide 5: Application (green bg) -->
+  <div class="slide green-bg-slide">
+    <div class="slide-header">
+      <div class="num">04 / 06</div>
+      <div class="title">申请难度</div>
+    </div>
+    <div class="slide-body">
+      <div style="font-size:26px;line-height:1.75;color:#d1e1d4;margin-bottom:28px;">作品集是最重要的，占录取决定的<strong style="color:#FF0043;">70%以上</strong>。要3-5个项目，每个项目必须展示完整流程：发现问题 → 研究 → 定义 → 原型 → 测试。纯放最终效果图的作品集基本过不了。</div>
+      <div class="green-label-light">核心要求</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">
+        <div style="padding:20px;background:rgba(244,242,235,0.08);border-top:4px solid #a0cfa8;">
+          <div style="font-size:16px;font-weight:700;color:#a0cfa8;letter-spacing:2px;margin-bottom:6px;">作品集</div>
+          <div style="font-size:22px;color:#d1e1d4;line-height:1.5;">3-5个项目，展示完整设计流程</div>
+        </div>
+        <div style="padding:20px;background:rgba(244,242,235,0.08);border-top:4px solid #a0cfa8;">
+          <div style="font-size:16px;font-weight:700;color:#a0cfa8;letter-spacing:2px;margin-bottom:6px;">GPA</div>
+          <div style="font-size:22px;color:#d1e1d4;line-height:1.5;">美国TOP校 3.3+ / 英国 2:1</div>
+        </div>
+        <div style="padding:20px;background:rgba(244,242,235,0.08);border-top:4px solid #a0cfa8;">
+          <div style="font-size:16px;font-weight:700;color:#a0cfa8;letter-spacing:2px;margin-bottom:6px;">语言</div>
+          <div style="font-size:22px;color:#d1e1d4;line-height:1.5;">TOEFL 100+ / IELTS 7.0+</div>
+        </div>
+        <div style="padding:20px;background:rgba(244,242,235,0.08);border-top:4px solid #a0cfa8;">
+          <div style="font-size:16px;font-weight:700;color:#a0cfa8;letter-spacing:2px;margin-bottom:6px;">核心能力</div>
+          <div style="font-size:22px;color:#d1e1d4;line-height:1.5;">用户研究 > 视觉 > 技术</div>
+        </div>
+      </div>
+      <div class="g-highlight-light">核心能力优先级：用户研究 > 视觉设计 > 技术实现</div>
+    </div>
+    <div class="watermark" style="color:rgba(209,225,212,0.2);">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- G Slide 6: Who fits (light bg) -->
+  <div class="slide content-slide">
+    <div class="side-rail"></div>
+    <div class="slide-header">
+      <div class="num">05 / 06</div>
+      <div class="title">什么样的人<br>适合学交互</div>
+    </div>
+    <div class="slide-body">
+      <div class="g-trait">设计/CS/心理学背景（转专业也很多）</div>
+      <div class="g-trait">会盯着一个APP想<strong>"这个按钮为什么放这里"</strong></div>
+      <div class="g-trait">想做有用的东西——不是纯艺术表达，是真的能被人用的产品</div>
+      <div class="g-trait">对<strong>"弱势群体怎么用产品"</strong>有感觉（无障碍设计/包容性设计）</div>
+      <div class="g-trait">能接受做大量用户访谈、问卷、数据分析，而不是只画图</div>
+      <div class="g-highlight">如果更想做"好看的东西"而不是"好用的东西"，可能平面设计更适合</div>
+    </div>
+    <div class="watermark">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+  <!-- G Slide 7: Career (green bg) -->
+  <div class="slide green-bg-slide">
+    <div class="slide-header">
+      <div class="num">06 / 06</div>
+      <div class="title">就业方向</div>
+    </div>
+    <div class="slide-body">
+      <div style="font-size:26px;line-height:1.75;color:#d1e1d4;margin-bottom:20px;">交互设计是设计类留学里就业<strong style="color:#FF0043;">最好的方向，没有之一</strong>。</div>
+      <div class="green-label-light">美国应届</div>
+      <div style="margin-bottom:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(160,207,168,0.15);font-size:24px;">
+          <span style="color:#d1e1d4;font-weight:500;">UX Designer</span><span style="color:#FF0043;font-weight:800;">$85-120K/年</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(160,207,168,0.15);font-size:24px;">
+          <span style="color:#d1e1d4;font-weight:500;">Product Designer</span><span style="color:#FF0043;font-weight:800;">$90-130K/年</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(160,207,168,0.15);font-size:24px;">
+          <span style="color:#d1e1d4;font-weight:500;">UX Researcher</span><span style="color:#FF0043;font-weight:800;">$90-120K/年</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(160,207,168,0.15);font-size:24px;">
+          <span style="color:#d1e1d4;font-weight:500;">Service Designer</span><span style="color:#d1e1d4;font-weight:600;">偏少但薪资不低</span>
+        </div>
+      </div>
+      <div class="green-label-light">回国</div>
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(160,207,168,0.15);font-size:24px;">
+          <span style="color:#d1e1d4;font-weight:500;">互联网大厂交互设计师</span><span style="color:#FF0043;font-weight:800;">30-50W/年</span>
+        </div>
+      </div>
+      <div style="background:rgba(244,242,235,0.06);border:1px solid rgba(160,207,168,0.2);padding:20px 28px;font-size:21px;line-height:1.7;color:#a0cfa8;margin-top:auto;">阿里/腾讯/字节 · 国内"交互设计"和"UI设计"经常混着招 · 大厂HC在缩，但中小公司和to B赛道还是缺人</div>
+    </div>
+    <div class="watermark" style="color:rgba(209,225,212,0.2);">蕉蕉椒椒（作品集版）</div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>
