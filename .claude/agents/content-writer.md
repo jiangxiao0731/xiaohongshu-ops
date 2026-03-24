@@ -72,7 +72,7 @@ Execution steps:
    - Write title + body + tags + cover suggestion (same specs as step 2)
 
 4. Compliance check:
-   - Read PLAN-V2.md 第五节 for red lines
+   - Read CLAUDE.md "XHS Compliance Red Lines" for red lines
    - Check for: 违禁词, 敏感话题, 夸大宣传, 未标注广告
    - Check for AI voice patterns (delete and rewrite any offending sentences)
    - Verify tag count <= 10

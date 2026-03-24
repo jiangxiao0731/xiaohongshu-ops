@@ -89,19 +89,20 @@ Green is the primary identity. Red is strictly 点缀 (decorative accent), never
 
 ## XHS Compliance Red Lines
 
-Every post must follow these rules (from `PLAN-V2.md` Section 5):
+Every post must follow these rules:
 
 - Max 10 tags per post
 - AI-generated content must be labeled (勾选「AI辅助生成」)
-- **NEVER** write: time-to-offer promises, GPA+admission claims, "私信我辅导", cross-account promotion, external links/QR codes
-- **SAFE:** Pure tech tutorials, program introductions, personal experience narratives, methodology content
-- Offer case posts: write about portfolio concepts only, never about tutoring results
+- 专业号认证（教育培训-留学）为强制要求
+- **NEVER** write: time-to-offer promises ("X个月拿到offer"), GPA+admission claims ("低GPA也能录取"), "私信我辅导/咨询", "我们机构/课程", "已帮助X位学生", "保证录取", cross-account promotion ("点主页另一个号"), external links/QR codes ("加微信")
+- **CAREFUL:** offer cases write portfolio concepts only; school names OK but not tied to "确保录取"; CTA use "聊聊/说说你的情况" not "咨询我"
+- **SAFE:** Pure tech tutorials, program introductions, personal experience narratives, methodology content, AI tool reviews, exhibition content
 
 ## Key Files
 
 | File | Purpose |
 |------|---------|
-| `PLAN-V2.md` | Full 12-week operation plan (v2.2) |
+| `PLAN-v3.0-2026-03-24.md` | Master plan (策略/定位/投流/目标) |
 | `WORKFLOW-STATE.md` | Machine-readable current state (phase, cookie, warmup status) |
 | `WORKFLOW.md` | Automation scripts and launchd setup |
 | `CALENDAR.md` | Week-by-week publishing calendar |
