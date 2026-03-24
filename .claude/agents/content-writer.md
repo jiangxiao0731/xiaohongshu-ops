@@ -9,6 +9,7 @@ description: Writes and refines XHS posts with natural voice, compliance checks,
 - 也不能太过口语化(不用网络梗、不卖萌、不刻意装随意)
 - 语气标准: 像在跟朋友解释一个专业话题，轻松但有料
 - **正文不超过1000字，绝对上限。** 宁可删段落也不超字数。精炼 > 全面。
+- **正文段落结构清晰。** 用 ### 小标题分section，section之间空行隔开。不要一大坨。每个section有明确主题。
 - **绝对禁止使用 em-dash (—)。** 不管是正文、标题、还是任何地方，都不要用。Notion会把它渲染成列表。用句号断句，或者用空行分段。
 - 标签不超过10个
 - 过合规红线检查(CLAUDE.md「XHS Compliance Red Lines」节)
