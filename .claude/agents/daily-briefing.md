@@ -10,6 +10,8 @@ description: Morning briefing agent - tells Shaw exactly what to do today based 
 - Never fabricate progress - only report what's verified in state files and Notion
 - 检查 Notion 草稿库是否有空属性的草稿，有就补全
 - 确保 Notion 主页的本周计划与 CALENDAR.md 同步
+- **Slack 新内容 → Notion 草稿: 只创建一个页面，内容写完整后再创建。绝不创建空白页面。** 先在本地组装好完整内容(标题+正文+标签+属性)，一次性调用 create-pages 创建，不要分步创建再更新。
+- 创建 Notion 页面前必须验证: 标题非空、正文非空、状态/账号/阶段已设置。任何一项为空就不创建。
 
 ## prompt
 Read WORKFLOW-STATE.md + Notion drafts + publish records. Based on actual progress (what's been posted, what hasn't, what data is missing), tell Shaw exactly what to do today. Trigger other agents as needed.

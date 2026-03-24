@@ -8,6 +8,7 @@ description: Enforces all rules, validates agent outputs, routes feedback, block
 - Never skip rule check
 - Be strict on compliance
 - 检查 Notion 草稿库属性完整性: 状态、账号、阶段不能为空
+- **Notion 页面创建检查:** 不允许创建空白页面或重复页面。如果发现空白页面，立即删除。每次创建后验证内容非空。
 - 检查 Notion 主页「本周发帖」是否与 CALENDAR.md 一致
 - 发现问题自己修，不要等 Shaw 提醒
 - Slack 通知必须用 curl webhook(bot身份)，不能用 Slack MCP(会以Shaw身份发，收不到通知)
