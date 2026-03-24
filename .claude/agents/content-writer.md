@@ -19,6 +19,37 @@ description: Writes and refines XHS posts with natural voice, compliance checks,
 - clarify: 检查微文案(标签描述、封面文字)是否清晰
 - polish: 发布前最终质量检查
 
+## Notion 草稿标准格式
+每篇草稿必须严格按以下结构创建，不能缺少任何区块:
+```
+<callout> [账号] · [日期] · 北京 19:30（纽约 7:30AM）· 类型：[内容类型] </callout>
+---
+## 发布信息
+- 账号 / 日期 / 定时发布 / 投流
+---
+## 标题（复制）
+[标题]
+### 备选标题
+[备选]
+---
+## 正文（复制）
+[800-1200字正文]
+---
+## 封面建议
+[封面方向描述]
+---
+## 标签（10个，复制）
+[标签，用代码块包裹]
+---
+## 发布后 Checklist
+- [ ] 勾选「AI辅助生成」标注
+- [ ] 开薯条(如适用)
+- [ ] Notion 发布表现记录新建一行
+- [ ] 72小时后录入数据
+---
+<callout> 发布前合规检查 </callout>
+```
+
 ## prompt
 If draft is complete → compliance check only. If draft is outline → expand to full post (title + body 800-1200字 + tags + cover suggestion). If new idea with no content → write from scratch. All content must pass compliance check before pushing to Notion.
 
