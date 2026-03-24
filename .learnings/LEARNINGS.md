@@ -14,7 +14,7 @@ Project path migration breaks ALL automation if references aren't updated everyw
 Project moved from ~/xiaohongshu-ops to ~/claude/xiaohongshu-ops. 12 launchd plists, 10 Python scripts, 5 shell scripts, and WORKFLOW.md all had old paths. System silently failed for a week with no notifications reaching Shaw.
 
 ### Suggested Action
-After any path migration, run comprehensive grep across ALL file types (py, sh, plist, md) to catch every reference. Never assume "I fixed the main ones."
+After any path migration, run comprehensive grep across ALL file types (py, sh, plist, md) to catch every reference.
 
 ### Resolution
 - **Resolved**: 2026-03-24
@@ -22,7 +22,6 @@ After any path migration, run comprehensive grep across ALL file types (py, sh, 
 
 ### Metadata
 - Source: error
-- Related Files: all automation/*.py, automation/*.sh, ~/Library/LaunchAgents/com.xhs.*.plist
 - Tags: path-migration, silent-failure, launchd
 
 ---
@@ -38,10 +37,7 @@ After any path migration, run comprehensive grep across ALL file types (py, sh, 
 Slack MCP sends as user's own identity -- no push notification received
 
 ### Details
-Slack MCP connector authenticates as Shaw. Messages sent via Slack MCP appear as Shaw's own messages, so Shaw gets no notification. Must use curl Slack webhook (bot identity) for notifications. But remote triggers can't curl external webhooks (proxy blocks it). Workaround: use Slack MCP for reading messages, use curl webhook from local launchd for sending.
-
-### Suggested Action
-All notification code: prefer curl webhook (bot). Fallback to Slack MCP if curl fails. Document this in supervisor rules.
+Must use curl Slack webhook (bot identity) for notifications. Remote triggers can't curl external webhooks (proxy blocks). Workaround: Slack MCP for reading, curl webhook from local launchd for sending.
 
 ### Metadata
 - Source: user_feedback
@@ -60,14 +56,10 @@ All notification code: prefer curl webhook (bot). Fallback to Slack MCP if curl 
 Notion page creation must be atomic -- never create empty pages
 
 ### Details
-When processing Slack content, the trigger created TWO Notion pages for the same idea: one with content, one blank. This happened because the agent called create-pages before content was ready, then updated separately.
-
-### Suggested Action
-Always assemble complete content locally first, then create ONE page with all content + properties in a single API call. Validate title/body/properties non-empty before creation.
+Trigger created TWO pages for same idea: one with content, one blank. Must assemble complete content first, create ONE page in single API call.
 
 ### Metadata
 - Source: user_feedback
-- Related Files: .claude/agents/content-writer.md, .claude/agents/daily-briefing.md
 - Tags: notion, duplicate-pages, atomic-operations
 
 ---
@@ -80,18 +72,14 @@ Always assemble complete content locally first, then create ONE page with all co
 **Promoted**: .claude/agents/content-writer.md
 
 ### Summary
-All Notion drafts must follow the exact same template format
+All Notion drafts must follow exact same template format
 
 ### Details
-Trigger-generated draft had different structure (## 发布标题 / ## 正文 / ## 标签) than existing drafts (callout header / ## 发布信息 / ## 标题（复制）/ ## 正文（复制）/ ## 封面建议 / ## 标签 / ## 发布后 Checklist / callout 合规检查). Shaw expects consistent format across all drafts.
-
-### Suggested Action
-Standard template is now in content-writer.md ## Notion 草稿标准格式. Every generated draft must match.
+Standard template in content-writer.md: callout header / 发布信息 / 标题(复制) / 正文(复制) / 封面建议 / 标签 / Checklist / 合规检查
 
 ### Metadata
 - Source: user_feedback
-- Related Files: .claude/agents/content-writer.md
-- Tags: notion, template-consistency, formatting
+- Tags: notion, template-consistency
 
 ---
 
@@ -105,15 +93,9 @@ Standard template is now in content-writer.md ## Notion 草稿标准格式. Ever
 ### Summary
 Every action must be reported to Slack in real-time, not batched
 
-### Details
-Shaw wants to see what the system is doing AS it happens. "读到了什么、怎么分类的、正在做什么、做完了什么、结果是什么" -- all must be communicated via Slack immediately, not summarized at the end.
-
-### Suggested Action
-Each agent step should send a Slack update. Not just the final result.
-
 ### Metadata
 - Source: user_feedback
-- Tags: slack, real-time-reporting, transparency
+- Tags: slack, real-time-reporting
 
 ---
 
@@ -127,12 +109,6 @@ Each agent step should send a Slack update. Not just the final result.
 ### Summary
 Feedback routes to specific agent rules, not global CLAUDE.md
 
-### Details
-Shaw said: "每次的反馈都精准对应到相关的subagent，不要全部写进全局占带宽". Example: "文字要有活人感" goes to content-writer.md rules, not global CLAUDE.md.
-
-### Suggested Action
-Supervisor must classify feedback and route to correct agent .md file. Only truly universal rules go to global.
-
 ### Metadata
 - Source: user_feedback
 - Tags: feedback-routing, agent-rules
@@ -144,16 +120,10 @@ Supervisor must classify feedback and route to correct agent .md file. Only trul
 **Logged**: 2026-03-24T06:35:00Z
 **Priority**: high
 **Status**: promoted
-**Promoted**: CLAUDE.md
+**Promoted**: multiple agent files
 
 ### Summary
 Notion draft database must have all properties filled -- never leave blanks
-
-### Details
-22 out of 25 drafts were missing 状态 property. Multiple drafts missing 账号, 阶段. Shaw expects every property filled on every draft.
-
-### Suggested Action
-Added rules to queue-manager, content-writer, supervisor, daily-briefing: check for empty properties and fill them.
 
 ### Metadata
 - Source: user_feedback
@@ -168,13 +138,7 @@ Added rules to queue-manager, content-writer, supervisor, daily-briefing: check 
 **Status**: resolved
 
 ### Summary
-Personal account was NOT dormant for 6 months -- plan assumption was wrong
-
-### Details
-PLAN-V2 assumed personal account was dormant 6 months, requiring warmup. Actual data: posts on 2/23 (227 views), 3/4 (324 views), 3/5 (69 views). Account was active. Warmup was unnecessary.
-
-### Suggested Action
-Always verify assumptions against actual data before building plans on them. Updated PLAN-v3.0.
+Personal account was NOT dormant 6 months -- plan assumption was wrong. Always verify assumptions against actual data.
 
 ### Metadata
 - Source: user_feedback
@@ -190,13 +154,7 @@ Always verify assumptions against actual data before building plans on them. Upd
 **Promoted**: memory/feedback_plan_cleanup.md
 
 ### Summary
-Plan files should be date-named, expired plans auto-deleted
-
-### Details
-Shaw doesn't want to be reminded about file maintenance. Plan files use format PLAN-vX.Y-YYYY-MM-DD.md. Old plans deleted automatically. Only one authoritative plan file exists at any time.
-
-### Suggested Action
-On plan update: create new versioned file, delete old one, update all references.
+Plan files: date-named (PLAN-vX.Y-YYYY-MM-DD.md), only one authoritative file, expired plans auto-deleted.
 
 ### Metadata
 - Source: user_feedback
@@ -211,13 +169,7 @@ On plan update: create new versioned file, delete old one, update all references
 **Status**: resolved
 
 ### Summary
-CALENDAR.md had wrong day-of-week: 3/26 is Thursday not Wednesday
-
-### Details
-Calendar said "周三 3/26" but 3/26 is actually Thursday. 3/25 is Wednesday. The remote trigger caught this error during its first run.
-
-### Suggested Action
-Always verify day-of-week with `date` command before writing dates. Don't assume.
+CALENDAR.md had wrong day-of-week: 3/26 is Thursday not Wednesday. Always verify with `date` command.
 
 ### Metadata
 - Source: error
@@ -232,17 +184,11 @@ Always verify day-of-week with `date` command before writing dates. Don't assume
 **Status**: resolved
 
 ### Summary
-GitHub secret scanning blocks pushes containing Slack webhook URLs
-
-### Details
-Attempted to commit supervisor.md with Slack webhook URL hardcoded. GitHub rejected the push with "push declined due to repository rule violations". Webhook URLs are detected as secrets.
-
-### Suggested Action
-Never hardcode webhook URLs in committed files. Reference .env or describe as "read from .env".
+GitHub secret scanning blocks pushes containing Slack webhook URLs. Never hardcode in committed files.
 
 ### Metadata
 - Source: error
-- Tags: github, secrets, webhook
+- Tags: github, secrets
 
 ---
 
@@ -250,20 +196,36 @@ Never hardcode webhook URLs in committed files. Reference .env or describe as "r
 
 **Logged**: 2026-03-24T07:30:00Z
 **Priority**: medium
-**Status**: resolved
+**Status**: promoted
+**Promoted**: .claude/agents/content-writer.md
 
 ### Summary
-Notion正文里的 em-dash (—) 被渲染成列表项
-
-### Details
-Content-writer used — (em-dash) as section separator in post body. Notion interpreted single `-` at line start as a bullet list item, creating empty "List" blocks.
-
-### Suggested Action
-Use blank lines for paragraph separation in Notion content, never use — or - as standalone separators.
+Notion 正文里的 em-dash (—) 被渲染成列表项。Use blank lines for paragraph separation, never — or - as standalone separators.
 
 ### Metadata
 - Source: error
-- Related Files: .claude/agents/content-writer.md
-- Tags: notion, formatting, em-dash
+- Tags: notion, formatting
+
+---
+
+## [LRN-20260324-013] correction
+
+**Logged**: 2026-03-24T08:00:00Z
+**Priority**: high
+**Status**: promoted
+**Promoted**: .claude/agents/content-writer.md
+
+### Summary
+正文不超过1000字，绝对上限。精炼 > 全面。
+
+### Details
+Shaw反馈AI生成的3.0文章太长。小红书用户注意力短，长文完读率低。1000字以内能讲清楚的不要写到1200。
+
+### Suggested Action
+content-writer rules已添加硬性字数限制。以后所有生成的文章都不超过1000字。
+
+### Metadata
+- Source: user_feedback
+- Tags: word-count, content-quality, xhs-optimization
 
 ---

@@ -8,6 +8,7 @@ description: Writes and refines XHS posts with natural voice, compliance checks,
 - 不能有AI味(不用"首先/其次/总之"、不堆砌形容词、不写排比句)
 - 也不能太过口语化(不用网络梗、不卖萌、不刻意装随意)
 - 语气标准: 像在跟朋友解释一个专业话题，轻松但有料
+- **正文不超过1000字，绝对上限。** 宁可删段落也不超字数。精炼 > 全面。
 - 标签不超过10个
 - 过合规红线检查(CLAUDE.md「XHS Compliance Red Lines」节)
 - 创建/更新 Notion 草稿时，所有属性必须填完(状态、账号、阶段、发布时间)，不能留空
