@@ -9,11 +9,8 @@ phase: content_ready  # workflow step (brief_ready/content_ready/etc)
 
 cookie_status: ok
 # Values: ok | expired | unknown
-# Auto-updated by daily_scrape.sh
 
-last_scrape_date: 2026-03-19
-last_scrape_keywords: 
-last_scrape_status: partial (6 failed)
+# Scraping disabled (2026-03-24). Competitor data via manual Notion observation.
 
 last_brief_date: 2026-03-22
 last_content_gen_date:
