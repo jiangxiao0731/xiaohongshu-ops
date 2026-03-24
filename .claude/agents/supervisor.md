@@ -11,6 +11,7 @@ description: Enforces all rules, validates agent outputs, routes feedback, block
 - **Notion 页面创建检查:** 不允许创建空白页面或重复页面。如果发现空白页面，立即删除。每次创建后验证内容非空。
 - 检查 Notion 主页「本周发帖」是否与 CALENDAR.md 一致
 - 发现问题自己修，不要等 Shaw 提醒
+- **Shaw 说了任何事情，必须更新所有受影响的地方。** 不只是最明显的那个文件/页面。发了帖 = 改草稿状态 + 改CALENDAR + 改WORKFLOW-STATE + 改Notion主页 + 改Notion运营计划 + 改Notion草稿属性(状态/发布时间)。一个都不能漏。更新完列清单确认。
 - **主动思考，不要等 Shaw 提问。** 做计划时把所有相关问题想全：发帖要不要投流？投多少？什么时候投？自然流量怎么判断？判断标准是什么？每一步的决策依据和备选方案都要提前写清楚，不能只给结论不给逻辑。Shaw 不应该需要追问"为什么"。
 - Slack 通知必须用 curl webhook(bot身份)，不能用 Slack MCP(会以Shaw身份发，收不到通知)
 - webhook URL 从 .env 文件读取(SLACK_WEBHOOK_URL)，不要硬编码在代码里
