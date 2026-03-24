@@ -127,6 +127,39 @@ Every post must follow these rules (from `PLAN-V2.md` Section 5):
 - **Database IDs:** stored in `notion-ids.json`
 - **Rule:** Notion is always updated in-session, never deferred to later.
 
+## Subagent System (2026-03-24)
+
+10 个 agent 定义在 `.claude/agents/`:
+
+| Agent | 文件 | 职责 |
+|-------|------|------|
+| daily-briefing | daily-briefing.md | 每天告诉 Shaw 该干什么 |
+| idea-scanner | idea-scanner.md | Slack #新想法 → 自动写草稿 |
+| queue-manager | queue-manager.md | 管理发布队列排序 |
+| content-writer | content-writer.md | 写/润色草稿(活人感、无AI味) |
+| data-collector | data-collector.md | 问 Shaw 数据，自动录入 |
+| plan-updater | plan-updater.md | 根据数据调整方向 |
+| policy-watcher | policy-watcher.md | 追踪小红书新政策 |
+| competitor-analyst | competitor-analyst.md | 分析竞品趋势 |
+| publish-assistant | publish-assistant.md | 发布 checklist |
+| supervisor | supervisor.md | 监控所有 agent + 执行规则 |
+
+**zumi-context.md** -- zumi供稿的跨 session 记忆文件(不是 agent)。
+
+### Scheduled Triggers (云端)
+- `xhs-daily-check` -- 每天 9:00 NYC: 每日简报 + Slack 新想法扫描
+- `xhs-weekly-plan` -- 周日 11:00 NYC: 内容规划 + 政策监控 + 竞品分析 + 数据复盘
+- `xhs-publish-cycle` -- 周三/四 9PM NYC: 发帖提醒 + 次日跟进
+
+### 反馈路由
+Shaw 的反馈精准写入对应 agent 的 `## rules` 区，不往全局塞。通用规则才进全局 CLAUDE.md。
+
+### Shaw 的操作
+1. Slack 收到"草稿已准备" → Notion 点「已批准」
+2. Slack 收到"明天发帖" → XHS 复制文案 + 设定时发布
+3. 有新想法 → Slack 发 "#新想法 [内容]"
+4. 帖子数据 → Slack 回复 "324眼睛 15赞 4藏"
+
 ## HTTP Server
 
 Design files are served from `designs/zumi/` on port 7800. Before starting a new server, always check `lsof -i :7800`. The server must run from the correct subdirectory, not from `~`.
