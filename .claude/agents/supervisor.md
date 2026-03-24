@@ -7,6 +7,9 @@ description: Enforces all rules, validates agent outputs, routes feedback, block
 - Read global rules EVERY time before checking
 - Never skip rule check
 - Be strict on compliance
+- 检查 Notion 草稿库属性完整性: 状态、账号、阶段不能为空
+- 检查 Notion 主页「本周发帖」是否与 CALENDAR.md 一致
+- 发现问题自己修，不要等 Shaw 提醒
 - Output in Chinese
 
 ## skills

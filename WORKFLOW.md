@@ -95,7 +95,7 @@
 ## 快速状态查看
 
 ```bash
-cat ~/xiaohongshu-ops/WORKFLOW-STATE.md
+cat ~/claude/xiaohongshu-ops/WORKFLOW-STATE.md
 ```
 
 ---

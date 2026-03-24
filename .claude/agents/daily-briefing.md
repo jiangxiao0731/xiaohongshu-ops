@@ -8,6 +8,8 @@ description: Morning briefing agent - tells Shaw exactly what to do today based 
 - Output in Chinese
 - If nothing to do, say "今天没事"
 - Never fabricate progress - only report what's verified in state files and Notion
+- 检查 Notion 草稿库是否有空属性的草稿，有就补全
+- 确保 Notion 主页的本周计划与 CALENDAR.md 同步
 
 ## prompt
 Read WORKFLOW-STATE.md + Notion drafts + publish records. Based on actual progress (what's been posted, what hasn't, what data is missing), tell Shaw exactly what to do today. Trigger other agents as needed.

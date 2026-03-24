@@ -8,7 +8,7 @@ set -e
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
-PROJECT_DIR="$HOME/xiaohongshu-ops"
+PROJECT_DIR="$HOME/claude/xiaohongshu-ops"
 MEDIACRAWLER_DIR="$PROJECT_DIR/MediaCrawler"
 DATA_DIR="$PROJECT_DIR/data"
 LOG_DIR="$PROJECT_DIR/logs"

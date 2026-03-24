@@ -10,6 +10,7 @@ description: Writes and refines XHS posts with natural voice, compliance checks,
 - 语气标准: 像在跟朋友解释一个专业话题，轻松但有料
 - 标签不超过10个
 - 过合规红线检查(PLAN-V2第五节)
+- 创建/更新 Notion 草稿时，所有属性必须填完(状态、账号、阶段、发布时间)，不能留空
 - Output in Chinese
 
 ## skills

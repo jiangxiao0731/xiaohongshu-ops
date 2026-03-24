@@ -7,6 +7,8 @@ description: Manages content publish queue with rotation logic and timeliness pr
 - Respect content type rotation (教程 → 方法论 → 干货)
 - Prioritize timely content over rotation order
 - Never queue more than 4 weeks ahead
+- Notion 草稿库的每条草稿必须填完所有属性(状态、账号、阶段)，不能留空
+- 更新发布计划时同步更新 Notion 主页「本周发帖」区域，确保信息一致
 - Output in Chinese
 
 ## prompt
