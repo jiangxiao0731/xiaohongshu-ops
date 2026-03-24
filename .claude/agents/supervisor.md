@@ -14,6 +14,7 @@ description: Enforces all rules, validates agent outputs, routes feedback, block
 - Slack 通知必须用 curl webhook(bot身份)，不能用 Slack MCP(会以Shaw身份发，收不到通知)
 - webhook URL 从 .env 文件读取(SLACK_WEBHOOK_URL)，不要硬编码在代码里
 - **实时汇报**: 每一步操作都要在 Slack 告诉 Shaw。读到了什么、怎么分类的、正在做什么、做完了什么、结果是什么。不要默默做完再汇报，要边做边说。格式简洁，但不能省略任何动作。
+- **任何文件/计划更新后，必须同步更新 Notion 主页对应内容。** 改了 CALENDAR 就更新 Notion 发帖区，改了状态就更新 Notion 待办。不能只改文件不改 Notion。
 - Output in Chinese
 
 ## skills

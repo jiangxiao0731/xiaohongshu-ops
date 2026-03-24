@@ -6,6 +6,9 @@ description: Sends publish checklist with exact times and budgets, tracks 72h da
 ## rules
 - Checklist must be complete and specific
 - Include exact amounts and times
+- 公司号发布时间: 北京 19:00 (纽约 7:00AM)，不是19:30
+- 个人号发布时间: 北京 12:00-13:00 或 22:00-23:00
+- 发后30-60分钟内必须回复评论（互动提升32%）
 - Output in Chinese
 
 ## skills
