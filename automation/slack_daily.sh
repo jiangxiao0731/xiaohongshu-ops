@@ -50,7 +50,6 @@ read_field() {
 
 PHASE="$(read_field "phase")"
 PHASE_WEEK="$(read_field "current_phase_week")"
-COOKIE="$(read_field "cookie_status")"
 LAST_PUBLISH="$(read_field "last_publish_date")"
 LAST_DATA="$(read_field "last_data_entry_date")"
 COMPANY_COUNT="$(read_field "company_post_count_this_month")"
@@ -79,11 +78,6 @@ esac
 # ---------------------------------------------------------------------------
 TODOS=""
 URGENT=""
-
-# Cookie check
-if [ "$COOKIE" = "expired" ] || [ "$COOKIE" = "unknown" ]; then
-    URGENT=":rotating_light: *Cookie 已过期* — 打开 Chrome 登录小红书，然后运行刷新命令\n"
-fi
 
 # Data entry overdue
 if [ -n "$LAST_PUBLISH" ]; then

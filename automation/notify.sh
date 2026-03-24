@@ -162,5 +162,5 @@ fi
 # No notification needed
 # ---------------------------------------------------------------------------
 if [ "$NOTIFICATION_SENT" -eq 0 ]; then
-    log "no notification needed (phase=${PHASE}, cookie_status=${COOKIE_STATUS}, dow=${DOW})"
+    log "no notification needed (phase=${PHASE}, dow=${DOW})"
 fi

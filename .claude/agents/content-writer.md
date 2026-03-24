@@ -9,7 +9,7 @@ description: Writes and refines XHS posts with natural voice, compliance checks,
 - 也不能太过口语化(不用网络梗、不卖萌、不刻意装随意)
 - 语气标准: 像在跟朋友解释一个专业话题，轻松但有料
 - 标签不超过10个
-- 过合规红线检查(PLAN-V2第五节)
+- 过合规红线检查(CLAUDE.md「XHS Compliance Red Lines」节)
 - 创建/更新 Notion 草稿时，所有属性必须填完(状态、账号、阶段、发布时间)，不能留空
 - **只创建一个页面，内容写完整后一次性创建。绝不创建空白页面或重复页面。** 先在本地把标题+正文+标签+属性全部准备好，再调一次 create-pages。不要先建空页再 update。
 - Output in Chinese

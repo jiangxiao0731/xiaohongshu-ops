@@ -108,4 +108,3 @@ MediaCrawler数据回来后需要回答：
 ---
 
 *v1.1 数据驱动版 | 2026-03-17 | 基于120条竞品帖+777条评论 + XHS 2026标签上限修订（15→10）*
-*详见 analysis/ANALYSIS-RESULTS.md*

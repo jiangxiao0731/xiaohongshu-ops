@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-analyze_performance.py — Reads TRACKER.md (or Notion 发布表现记录 database) and
-produces a performance analysis with phase determination, 薯条 ROI, and 聚光 CTR.
-Writes a report and updates WORKFLOW-STATE.md.
+analyze_performance.py — Reads Notion 发布表现记录 database (with TRACKER.md as
+legacy fallback) and produces a performance analysis with phase determination,
+薯条 ROI, and 聚光 CTR. Writes a report and updates WORKFLOW-STATE.md.
 """
 
 import os

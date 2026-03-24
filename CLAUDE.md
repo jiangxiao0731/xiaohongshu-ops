@@ -19,14 +19,14 @@ Shaw runs a portfolio consulting business (作品集辅导) targeting art/design
 
 - **Phase:** 修复期 (Repair) -- Week 1 of 12-week plan
 - **State file:** `WORKFLOW-STATE.md` (source of truth for current phase, warmup status, etc.)
-- **Full plan:** `PLAN-V2.md` (v2.2, data-driven rewrite based on 120 competitor posts + XHS policy research)
+- **Full plan:** `PLAN-v3.0-2026-03-24.md` (v3.0, data-driven rewrite based on 120 competitor posts + XHS policy research)
 
 ## Plan Review Discipline
 
-`PLAN-V2.md` is the operational backbone. Follow these rules:
+`PLAN-v3.0-2026-03-24.md` is the operational backbone. Follow these rules:
 
-1. **Every session start:** Read `PLAN-V2.md` and `WORKFLOW-STATE.md` to understand current state.
-2. **Daily review:** At the end of each working day, review what actions were taken (posts published, designs created, data collected, decisions made). If any posts were published or performance data was read, refine `PLAN-V2.md` accordingly -- adjust timelines, update learnings, shift priorities based on real results.
+1. **Every session start:** Read `PLAN-v3.0-2026-03-24.md` and `WORKFLOW-STATE.md` to understand current state.
+2. **Daily review:** At the end of each working day, review what actions were taken (posts published, designs created, data collected, decisions made). If any posts were published or performance data was read, refine `PLAN-v3.0-2026-03-24.md` accordingly -- adjust timelines, update learnings, shift priorities based on real results.
 3. **Skip if idle:** If no posts were published and no performance data was read/collected that day, do NOT update the plan. No busywork updates.
 4. **Slack notification:** After each plan update, send a Slack message to Shaw summarizing what changed and why. Keep it concise -- bullet points of what was updated, not a full diff.
 5. **Plan evolution:** The plan is a living document. Real data always overrides assumptions. If a post performs unexpectedly well or poorly, the plan should reflect that learning immediately.

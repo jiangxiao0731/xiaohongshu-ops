@@ -48,7 +48,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Baseline tag frequencies (from ANALYSIS-RESULTS hardcoded reference)
+# Baseline tag frequencies (hardcoded from initial 120-post competitor analysis)
 # Used to detect trending tags (>50% increase vs baseline)
 # ---------------------------------------------------------------------------
 TAG_BASELINE: dict[str, int] = {

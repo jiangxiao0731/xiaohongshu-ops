@@ -160,7 +160,7 @@ def generate_placeholder(brief: dict) -> str:
     return (
         "需要手动生成：打开Claude对话，粘贴以下brief：\n\n"
         "---\n"
-        f"系统提示：\n{SYSTEM_PROMPT}\n\n"
+        f"系统提示：\n{COMPANY_SYSTEM_PROMPT}\n\n"
         f"用户消息：\n{user_message}\n"
         "---"
     )
