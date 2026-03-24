@@ -29,7 +29,7 @@ xiaohongshu-ops/
 ## 当前状态（2026-03-16）
 
 - [x] MediaCrawler 已安装（~/Downloads/MediaCrawler/）
-- [x] 虚拟环境已配置（~/xiaohongshu-ops/.venv/）
+- [x] 虚拟环境已配置（~/claude/xiaohongshu-ops/.venv/）
 - [ ] MediaCrawler 登录授权（需要扫QR码）
 - [ ] 5组关键词数据抓取
 - [ ] 账号基础设置（见SETUP.md）
@@ -43,7 +43,7 @@ xiaohongshu-ops/
 
 ```bash
 cd ~/Downloads/MediaCrawler
-source ~/xiaohongshu-ops/.venv/bin/activate
+source ~/claude/xiaohongshu-ops/.venv/bin/activate
 python main.py --platform xhs --lt qrcode
 # 扫码授权小红书账号
 ```

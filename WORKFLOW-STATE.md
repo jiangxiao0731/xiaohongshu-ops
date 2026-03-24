@@ -1,7 +1,7 @@
 # XHS Workflow State
 # This file is auto-updated by automation scripts. Do not edit manually except where noted.
 
-phase: content_ready
+phase: content_ready  # workflow step (brief_ready/content_ready/etc)
 # Values: repair | building | stable | awaiting_data | brief_ready | content_ready
 # repair = 修复期 (weeks 1-4)
 # building = 建量期 (weeks 5-8) — enter when new post gets ≥50 organic likes/saves in 72h OR 聚光 CTR ≥3% with inquiries
@@ -21,7 +21,7 @@ last_publish_date:
 last_data_entry_date:
 last_analysis_date: 2026-03-21
 
-current_phase: 修复期
+current_phase: 修复期  # operational phase (修复期/建量期/稳定期)
 # Auto-updated by analyze_performance.py
 # Values: 修复期 | 建量期 | 稳定期
 

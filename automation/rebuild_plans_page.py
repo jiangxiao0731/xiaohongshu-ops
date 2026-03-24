@@ -2,9 +2,9 @@
 """Rebuild the plans page with full side-by-side 12-week calendar."""
 
 import os, sys
-sys.path.insert(0, os.path.expanduser("~/xiaohongshu-ops"))
+sys.path.insert(0, os.path.expanduser("~/claude/xiaohongshu-ops"))
 
-env_file = os.path.expanduser("~/xiaohongshu-ops/.env")
+env_file = os.path.expanduser("~/claude/xiaohongshu-ops/.env")
 if os.path.exists(env_file):
     with open(env_file) as f:
         for line in f:

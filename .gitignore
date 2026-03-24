@@ -9,3 +9,4 @@ data/
 briefs/
 *.csv
 .DS_Store
+designs/.DS_Store

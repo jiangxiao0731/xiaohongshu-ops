@@ -180,7 +180,7 @@ def write_draft(content: str, date: str) -> Path:
 def generate(brief: dict, account_type: str = "company") -> str:
     """
     Generate XHS post content for a given brief dict.
-    Returns the content string and writes it to ~/xiaohongshu-ops/content/YYYY-MM-DD-draft.md.
+    Returns the content string and writes it to ~/claude/xiaohongshu-ops/content/YYYY-MM-DD-draft.md.
     """
     api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     today = datetime.now().strftime("%Y-%m-%d")

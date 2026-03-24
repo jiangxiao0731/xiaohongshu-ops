@@ -3,7 +3,7 @@
 setup_notion.py
 Creates the full Notion database structure for the XHS automation system
 under parent page 32693fe4326480e386e3fc6a049fff07.
-Saves database IDs to ~/xiaohongshu-ops/notion-ids.json.
+Saves database IDs to ~/claude/xiaohongshu-ops/notion-ids.json.
 """
 
 import os

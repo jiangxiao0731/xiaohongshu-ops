@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/xiaohongshu-ops/MediaCrawler
+cd ~/claude/xiaohongshu-ops/MediaCrawler
 export PATH="$HOME/.local/bin:$PATH"
 export no_proxy="localhost,127.0.0.1"
 export XHS_SOCKS_PROXY="socks5://127.0.0.1:1086"
