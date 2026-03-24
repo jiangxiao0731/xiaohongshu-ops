@@ -1,7 +1,7 @@
 # XHS Workflow State
 # This file is auto-updated by automation scripts. Do not edit manually except where noted.
 
-phase: content_ready  # workflow step (brief_ready/content_ready/etc)
+phase: content_ready
 # Values: repair | building | stable | awaiting_data | brief_ready | content_ready
 # repair = 修复期 (weeks 1-4)
 # building = 建量期 (weeks 5-8) — enter when new post gets ≥50 organic likes/saves in 72h OR 聚光 CTR ≥3% with inquiries
@@ -13,7 +13,7 @@ cookie_status: ok
 # Scraping disabled (2026-03-24). Competitor data via manual Notion observation.
 
 last_brief_date: 2026-03-22
-last_content_gen_date:
+last_content_gen_date: 2026-03-24
 last_publish_date: 2026-03-24
 last_data_entry_date:
 last_analysis_date: 2026-03-21
