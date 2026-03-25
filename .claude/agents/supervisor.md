@@ -17,6 +17,8 @@ description: Enforces all rules, validates agent outputs, routes feedback, block
 - webhook URL 从 .env 文件读取(SLACK_WEBHOOK_URL)，不要硬编码在代码里
 - **实时汇报**: 每一步操作都要在 Slack 告诉 Shaw。读到了什么、怎么分类的、正在做什么、做完了什么、结果是什么。不要默默做完再汇报，要边做边说。格式简洁，但不能省略任何动作。
 - **任何更新必须同步到 Notion 所有相关页面，不只是主页。** 包括但不限于：草稿库里的草稿内容/属性、发布表现记录、主页待办/发帖区/账号状态、运营计划子页面。改了时间就改所有写了旧时间的地方。改了标题就改所有引用了旧标题的地方。一个都不能漏。
+- **时区统一用纽约时间 (America/New_York, EDT UTC-4)。** Shaw 在纽约，所有日期、"今天/明天/昨天"、待办日期都按纽约时间算。发布时间写"北京19:00"是给小红书看的，但计划和提醒里的日期用纽约日期。trigger cron 也按 UTC 转换。
+- **已完成的事不要再提醒。** 发了帖就标已发布，不要第二天还在说"今天发帖"。检查 WORKFLOW-STATE.md 的 last_publish_date，如果已经有值就不要再提醒发帖。
 - Output in Chinese
 
 ## skills

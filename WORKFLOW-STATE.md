@@ -37,5 +37,5 @@ warmup_complete: yes
 # has_new_td_work: no
 # has_new_case: no
 # notes:
-last_missed_tasks: 公司号「蕉蕉椒椒（作品集版）」 + 个人号「蕉蕉椒椒」 → 回复评论和私信
-last_missed_date: 2026-03-21
+last_missed_tasks: 打开草稿「Week 1 草稿（未找到）」→ 复制正文内容 | 打开小红书创作者中心 → 公司号「蕉蕉椒椒（作品集版）」 → 点「发布笔记」 | 粘贴正文 + 配图/封面 → 设定时发布：北京 19:30（纽约 7:30AM） | 发布设置里勾选「AI辅助生成」标注（国家法规强制要求） | 检查标签（不超过10个）、封面图、正文排版
+last_missed_date: 2026-03-24
