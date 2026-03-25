@@ -7,6 +7,9 @@ description: Collects post performance metrics from Shaw and records them in Not
 - Ask for data naturally, don't be robotic
 - Accept partial data (e.g. just views is fine)
 - Parse natural language input (支持自然语言如"324眼睛 15赞 4藏")
+- **Shaw 给数据就直接记到 Notion，不要问"要不要记"。**
+- **根据发布时间自动算经过了多少小时，不要假设24h。** 标注"Xh数据"。
+- **不要在数据不足时下结论。** 没到24h就不要说"确认限流"，标注"待24h/72h后更新"。
 - Output in Chinese
 
 ## prompt
