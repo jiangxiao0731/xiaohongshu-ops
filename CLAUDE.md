@@ -8,10 +8,10 @@ Shaw runs a portfolio consulting business (作品集辅导) targeting art/design
 
 | Account | Name | Role | Content Focus |
 |---------|------|------|---------------|
-| **Company** | 蕉蕉椒椒（作品集版） | Brand credibility + case studies | Portfolio methodology, tech tutorials, program comparisons |
-| **Personal** | 蕉蕉椒椒 | Creator persona + trust building | TD tutorials, AI tool reviews, exhibition content |
+| **Company** | 蕉蕉椒椒（作品集版） | **唯一转化号** — single conversion channel | 方法论/干货(周三) + 实操模板/工具(周六), 2篇/周 |
+| **Personal** | 蕉蕉椒椒 | **证据号** — proves expertise, no inquiry KPI | TD tutorials, AI tool reviews, exhibition content, 1篇/周保权重 |
 
-**Critical rule:** The two accounts NEVER cross-reference each other in posts. No mutual @mentions, no "check my other account" CTAs. XHS aggressively bans matrix operations (矩阵运营). The personal account does NOT mention portfolio consulting at all -- it's a creative technologist persona.
+**Critical rule:** The two accounts are **completely independent**. No mutual @mentions, no "check my other account" CTAs, no mentioning each other in bios. XHS aggressively bans matrix operations (矩阵运营) since Sep 2025. The personal account does NOT mention portfolio consulting at all -- it's a creative technologist persona. Personal account tags must NOT include 留学/作品集 related tags.
 
 **Scraping account:** MediaCrawler 登录态使用小号（burner account），NOT the business or personal account. 封号风险太高，绝不能用运营账号爬取。登录态缓存在 `MediaCrawler/browser_data/`。如需重新登录小号：删除 `browser_data/xhs_user_data_dir` 和 `browser_data/cdp_xhs_user_data_dir`，然后 `--lt qrcode` 扫码。
 
@@ -19,17 +19,25 @@ Shaw runs a portfolio consulting business (作品集辅导) targeting art/design
 
 - **Phase:** 修复期 (Repair) -- Week 1 of 12-week plan
 - **State file:** `WORKFLOW-STATE.md` (source of truth for current phase, warmup status, etc.)
-- **Full plan:** `PLAN-v3.1-2026-03-24.md` (v3.0, data-driven rewrite based on 120 competitor posts + XHS policy research)
+- **Full plan:** `PLAN-v4.0-2026-03-28.md` (v4.0, Codex审查驱动重写: 公司号为主、去微信导流、2篇/周)
 
 ## Plan Review Discipline
 
-`PLAN-v3.1-2026-03-24.md` is the operational backbone. Follow these rules:
+`PLAN-v4.0-2026-03-28.md` is the operational backbone. Follow these rules:
 
-1. **Every session start:** Read `PLAN-v3.1-2026-03-24.md` and `WORKFLOW-STATE.md` to understand current state.
-2. **Daily review:** At the end of each working day, review what actions were taken (posts published, designs created, data collected, decisions made). If any posts were published or performance data was read, refine `PLAN-v3.1-2026-03-24.md` accordingly -- adjust timelines, update learnings, shift priorities based on real results.
+1. **Every session start:** Read `PLAN-v4.0-2026-03-28.md` and `WORKFLOW-STATE.md` to understand current state.
+2. **Daily review:** At the end of each working day, review what actions were taken (posts published, designs created, data collected, decisions made). If any posts were published or performance data was read, refine `PLAN-v4.0-2026-03-28.md` accordingly -- adjust timelines, update learnings, shift priorities based on real results.
 3. **Skip if idle:** If no posts were published and no performance data was read/collected that day, do NOT update the plan. No busywork updates.
 4. **Slack notification:** After each plan update, send a Slack message to Shaw summarizing what changed and why. Keep it concise -- bullet points of what was updated, not a full diff.
 5. **Plan evolution:** The plan is a living document. Real data always overrides assumptions. If a post performs unexpectedly well or poorly, the plan should reflect that learning immediately.
+
+## AI Role in Content Production
+
+- **Human decides** topic and outline. AI does NOT make first-draft topic choices.
+- **AI assists** with expansion, polish, compliance checks, title variations.
+- **AI does NOT** directly generate publish-ready posts. All output requires human final review.
+- Automation-generated content is "draft material" not "ready-to-publish copy".
+- **No off-platform diversion:** AI must never suggest WeChat, external links, or any off-platform contact methods in generated content.
 
 ## Color System (zumi供稿 Design Only)
 
@@ -102,7 +110,7 @@ Every post must follow these rules:
 
 | File | Purpose |
 |------|---------|
-| `PLAN-v3.1-2026-03-24.md` | Master plan (策略/定位/投流/目标) |
+| `PLAN-v4.0-2026-03-28.md` | Master plan (策略/定位/投流/目标) |
 | `WORKFLOW-STATE.md` | Machine-readable current state (phase, cookie, warmup status) |
 | `WORKFLOW.md` | Automation scripts and launchd setup |
 | `CALENDAR.md` | Week-by-week publishing calendar |
