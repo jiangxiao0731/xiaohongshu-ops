@@ -44,7 +44,7 @@ send_slack() {
 read_field() {
     local field="$1"
     if [ -f "$STATE_FILE" ]; then
-        grep "^${field}:" "$STATE_FILE" | sed "s/^${field}:[[:space:]]*//" | tr -d '[:space:]'
+        grep "^${field}:" "$STATE_FILE" | sed "s/^${field}:[[:space:]]*//" | sed 's/  #.*//' | xargs
     fi
 }
 

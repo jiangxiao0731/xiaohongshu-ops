@@ -217,8 +217,8 @@ def compute_average_engagement(posts: list[dict]) -> float:
     total = 0
     count = 0
     for post in posts:
-        liked = safe_int(post.get("点赞", post.get("liked", "0")))
-        collected = safe_int(post.get("收藏", post.get("collected", "0")))
+        liked = safe_int(post.get("赞", post.get("点赞", post.get("liked", "0"))))
+        collected = safe_int(post.get("藏", post.get("收藏", post.get("collected", "0"))))
         combined = liked + collected
         if combined > 0:
             total += combined
@@ -235,9 +235,9 @@ def analyze_shudiao_roi(posts: list[dict]) -> dict:
     without_shudiao = []
 
     for post in posts:
-        invest = post.get("是否投流", post.get("投流", "")).lower()
-        liked = safe_int(post.get("点赞", "0"))
-        collected = safe_int(post.get("收藏", "0"))
+        invest = post.get("薯条投放", post.get("是否投流", post.get("投流", ""))).lower()
+        liked = safe_int(post.get("赞", post.get("点赞", "0")))
+        collected = safe_int(post.get("藏", post.get("收藏", "0")))
         combined = liked + collected
         if "是" in invest or "yes" in invest:
             with_shudiao.append(combined)
@@ -278,7 +278,7 @@ def analyze_jiguang_ctr(ad_records: list[dict]) -> dict:
 
     ctrs = []
     for record in ad_records:
-        ctr_raw = record.get("CTR", record.get("ctr", "0"))
+        ctr_raw = record.get("聚光CTR", record.get("CTR", record.get("ctr", "0")))
         ctr = safe_float(ctr_raw)
         if ctr > 0:
             ctrs.append(ctr)
@@ -499,6 +499,8 @@ def main() -> None:
 
     # Update WORKFLOW-STATE.md
     update_state_field("current_phase", phase)
+    phase_en = {"修复期": "repair", "建量期": "building", "稳定期": "stable"}.get(phase, "repair")
+    update_state_field("phase", phase_en)
     update_state_field("last_analysis_date", today)
     logger.info(
         "WORKFLOW-STATE.md updated: current_phase=%s, last_analysis_date=%s", phase, today

@@ -32,9 +32,10 @@ notion = Client(auth=NOTION_TOKEN)
 ROOT_PAGE_ID = "32693fe4326480e386e3fc6a049fff07"
 IDS_FILE = Path.home() / "claude" / "xiaohongshu-ops" / "notion-ids.json"
 
-# Data source IDs (from Notion database data sources — different from database IDs)
-COMPANY_DRAFTS_DS = "27c9b0b1-b520-4adf-bfb8-84712f15f563"
-PERSONAL_DRAFTS_DS = "170ffc45-85a8-4412-a8d8-19b002264ecd"
+# Data source IDs (read from notion-ids.json)
+_ids_data = json.loads(IDS_FILE.read_text(encoding="utf-8")) if IDS_FILE.exists() else {}
+COMPANY_DRAFTS_DS = _ids_data.get("company_drafts_ds", "")
+PERSONAL_DRAFTS_DS = _ids_data.get("personal_drafts_ds", "")
 
 # ---------------------------------------------------------------------------
 # State

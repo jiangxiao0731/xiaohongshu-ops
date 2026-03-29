@@ -29,7 +29,7 @@ send_slack() {
 }
 
 read_field() {
-    grep "^${1}:" "$STATE_FILE" 2>/dev/null | sed "s/^${1}:[[:space:]]*//" | tr -d '[:space:]'
+    grep "^${1}:" "$STATE_FILE" 2>/dev/null | sed "s/^${1}:[[:space:]]*//" | sed 's/  #.*//' | xargs
 }
 
 PHASE="$(read_field "phase")"

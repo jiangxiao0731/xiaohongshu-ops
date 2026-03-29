@@ -58,13 +58,14 @@ send_notification() {
 read_state_field() {
     local field="$1"
     if [ -f "$STATE_FILE" ]; then
-        grep "^${field}:" "$STATE_FILE" | sed "s/^${field}:[[:space:]]*//" | tr -d '[:space:]'
+        grep "^${field}:" "$STATE_FILE" | sed "s/^${field}:[[:space:]]*//" | sed 's/  #.*//' | xargs
     else
         echo ""
     fi
 }
 
 PHASE="$(read_state_field "phase")"
+WORKFLOW_STEP="$(read_state_field "workflow_step")"
 LAST_DATA_ENTRY_DATE="$(read_state_field "last_data_entry_date")"
 LAST_PUBLISH_DATE="$(read_state_field "last_publish_date")"
 
@@ -75,21 +76,21 @@ NOTIFICATION_SENT=0
 # ---------------------------------------------------------------------------
 # Day-of-week + phase rules
 # ---------------------------------------------------------------------------
-if [ "$DOW" = "1" ] && [ "$PHASE" = "brief_ready" ]; then
+if [ "$DOW" = "1" ] && [ "$WORKFLOW_STEP" = "brief_ready" ]; then
     send_notification \
         "本周简报就绪，打开Notion审批内容方向" \
         "XHS运营 — 周一任务"
     NOTIFICATION_SENT=1
 fi
 
-if [ "$DOW" = "1" ] && [ "$PHASE" = "content_ready" ]; then
+if [ "$DOW" = "1" ] && [ "$WORKFLOW_STEP" = "content_ready" ]; then
     send_notification \
         "本周草稿已生成，查看Notion草稿库" \
         "XHS运营 — 草稿就绪"
     NOTIFICATION_SENT=1
 fi
 
-if [ "$DOW" = "3" ] && [ "$PHASE" = "content_ready" ]; then
+if [ "$DOW" = "3" ] && [ "$WORKFLOW_STEP" = "content_ready" ]; then
     send_notification \
         "今天北京时间7:30PM发帖（高峰前30分钟），Notion草稿库复制文案，记得勾选AI标注" \
         "XHS运营 — 周三发帖"
@@ -120,7 +121,7 @@ if [ "$DOW" = "6" ] && { [ "$PHASE" = "building" ] || [ "$PHASE" = "stable" ]; }
 fi
 
 # Monday: approval reminder (plan_ready/content_ready/brief_ready phases)
-if [ "$DOW" = "1" ] && { [ "$PHASE" = "plan_ready" ] || [ "$PHASE" = "content_ready" ] || [ "$PHASE" = "brief_ready" ]; }; then
+if [ "$DOW" = "1" ] && { [ "$WORKFLOW_STEP" = "plan_ready" ] || [ "$WORKFLOW_STEP" = "content_ready" ] || [ "$WORKFLOW_STEP" = "brief_ready" ]; }; then
     send_notification \
         "去Notion审批本周草稿 -- 待审批改为已批准" \
         "XHS运营 -- 周一审批"
@@ -130,7 +131,7 @@ fi
 # ---------------------------------------------------------------------------
 # Priority 3: awaiting_data — check if last_publish_date was >72h ago
 # ---------------------------------------------------------------------------
-if [ "$PHASE" = "awaiting_data" ]; then
+if [ "$WORKFLOW_STEP" = "awaiting_data" ]; then
     NOTIFY_DATA=0
     if [ -z "$LAST_PUBLISH_DATE" ]; then
         # No publish date recorded — prompt anyway

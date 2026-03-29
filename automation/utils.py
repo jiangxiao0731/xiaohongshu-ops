@@ -34,7 +34,10 @@ def read_state_field(field: str) -> str:
         return ""
     for line in STATE_FILE.read_text(encoding="utf-8").splitlines():
         if line.startswith(f"{field}:"):
-            return line[len(f"{field}:"):].strip()
+            raw = line[len(f"{field}:"):].strip()
+            if "  #" in raw:
+                raw = raw[:raw.index("  #")].strip()
+            return raw
     return ""
 
 

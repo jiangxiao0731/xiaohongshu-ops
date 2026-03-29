@@ -332,7 +332,9 @@ def generate_music(prompt: str, duration_seconds: int) -> Path:
         raise RuntimeError("Suno generation timed out after 5 minutes")
 
     # Step 3: Download audio (use curl to avoid Cloudflare blocks)
-    audio_path = Path(tempfile.mktemp(suffix=".mp3", prefix="td_music_"))
+    _tmp = tempfile.NamedTemporaryFile(suffix=".mp3", prefix="td_music_", delete=False)
+    audio_path = Path(_tmp.name)
+    _tmp.close()
     subprocess.run(
         ["curl", "-sL", "-o", str(audio_path), audio_url],
         check=True,
@@ -480,8 +482,8 @@ def sync_to_notion(post: dict, video_name: str) -> Optional[str]:
         return None
 
     ids = json.loads(NOTION_IDS_FILE.read_text(encoding="utf-8"))
-    # Use the unified 内容草稿库 (company_drafts) with 账号=个人号
-    db_id = ids.get("company_drafts", "")
+    # Use the personal account drafts database
+    db_id = ids.get("personal_drafts", "")
     if not db_id:
         logger.warning("company_drafts DB ID not found, skipping Notion sync")
         return None
@@ -508,9 +510,8 @@ def sync_to_notion(post: dict, video_name: str) -> Optional[str]:
         "parent": {"database_id": db_id},
         "icon": {"type": "emoji", "emoji": "🎬"},
         "properties": {
-            "Name": {"title": [{"text": {"content": title}}]},
+            "标题": {"title": [{"text": {"content": title}}]},
             "状态": {"select": {"name": "待审批"}},
-            "账号": {"select": {"name": "个人号"}},
         },
         "children": children,
     }).encode()
@@ -587,30 +588,31 @@ def process_video(video_path: Path, dry_run: bool = False) -> Optional[Path]:
     # 6. Generate music via Suno
     audio_path = generate_music(mood_prompt, int(duration))
 
-    # 7. Merge into .mp4
-    READY_DIR.mkdir(parents=True, exist_ok=True)
-    output_name = video_path.stem + ".mp4"
-    output_path = READY_DIR / output_name
-    merge_audio_video(video_path, audio_path, output_path)
-
-    # 8. Sync to Notion (personal drafts, status=待审批)
     try:
-        notion_url = sync_to_notion(post, output_name)
-        if notion_url:
-            logger.info("Notion page: %s", notion_url)
-    except Exception:
-        logger.exception("Notion sync failed (non-fatal)")
+        # 7. Merge into .mp4
+        READY_DIR.mkdir(parents=True, exist_ok=True)
+        output_name = video_path.stem + ".mp4"
+        output_path = READY_DIR / output_name
+        merge_audio_video(video_path, audio_path, output_path)
 
-    # 9. Notify
-    notify_msg = f"视频处理完成: {output_name}"
-    if post.get("title"):
-        notify_msg += f"\n文案: {post['title']}"
-    send_notification(notify_msg, "TD Auto-Music")
-    logger.info("Done! Output: %s", output_path)
+        # 8. Sync to Notion (personal drafts, status=待审批)
+        try:
+            notion_url = sync_to_notion(post, output_name)
+            if notion_url:
+                logger.info("Notion page: %s", notion_url)
+        except Exception:
+            logger.exception("Notion sync failed (non-fatal)")
 
-    # 10. Cleanup temp files
-    _cleanup_frames(frames)
-    audio_path.unlink(missing_ok=True)
+        # 9. Notify
+        notify_msg = f"视频处理完成: {output_name}"
+        if post.get("title"):
+            notify_msg += f"\n文案: {post['title']}"
+        send_notification(notify_msg, "TD Auto-Music")
+        logger.info("Done! Output: %s", output_path)
+    finally:
+        # 10. Cleanup temp files (always runs)
+        _cleanup_frames(frames)
+        audio_path.unlink(missing_ok=True)
 
     return output_path
 

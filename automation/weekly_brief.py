@@ -390,7 +390,7 @@ def push_to_notion(brief: dict, notion_token: str) -> None:
             notion.pages.create(
                 parent={"database_id": db_id},
                 properties={
-                    "Name": {
+                    "周次": {
                         "title": [{"text": {"content": f"竞品周报 {brief['date']}"}}]
                     },
                     "日期": {
@@ -535,7 +535,7 @@ def main() -> None:
         )
 
     # Update WORKFLOW-STATE.md
-    update_state_field("phase", "brief_ready")
+    update_state_field("workflow_step", "brief_ready")
     update_state_field("last_brief_date", today)
     logger.info("WORKFLOW-STATE.md updated: phase=brief_ready, last_brief_date=%s", today)
 

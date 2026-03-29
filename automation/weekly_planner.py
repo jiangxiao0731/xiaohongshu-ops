@@ -283,7 +283,7 @@ def main() -> None:
             logger.error("Failed to create Notion draft for %s: %s", draft["title"], exc)
 
     # Update state
-    update_state_field("phase", "plan_ready")
+    update_state_field("workflow_step", "plan_ready")
     update_state_field("last_planner_date", today)
     logger.info("Created %d/%d drafts in Notion", created_count, len(drafts))
 

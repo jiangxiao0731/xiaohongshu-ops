@@ -239,7 +239,7 @@ def main() -> None:
         )
 
         # Update workflow state
-        update_state_field("phase", "content_ready")
+        update_state_field("workflow_step", "content_ready")
         today = datetime.now().strftime("%Y-%m-%d")
         update_state_field("last_content_gen_date", today)
         logger.info(

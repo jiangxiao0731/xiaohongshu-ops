@@ -7,6 +7,7 @@ check_approved.py via generate(brief_dict).
 """
 
 import os
+import re
 import sys
 import json
 import logging
@@ -166,9 +167,10 @@ def generate_placeholder(brief: dict) -> str:
     )
 
 
-def write_draft(content: str, date: str) -> Path:
-    """Write the generated content to a dated draft file."""
-    draft_path = CONTENT_DIR / f"{date}-draft.md"
+def write_draft(content: str, date: str, title: str = "") -> Path:
+    """Write the generated content to a dated draft file with optional title slug."""
+    safe_slug = re.sub(r'[^\w\u4e00-\u9fff-]', '', title)[:30] if title else ""
+    draft_path = CONTENT_DIR / f"{date}-{safe_slug}-draft.md" if safe_slug else CONTENT_DIR / f"{date}-draft.md"
     draft_path.write_text(content, encoding="utf-8")
     logger.info("Draft written to %s", draft_path)
     return draft_path
@@ -191,7 +193,8 @@ def generate(brief: dict, account_type: str = "company") -> str:
         logger.warning("ANTHROPIC_API_KEY not set — generating placeholder")
         content = generate_placeholder(brief)
 
-    write_draft(content, today)
+    brief_title = brief.get("title", "") or brief.get("date", "") or ""
+    write_draft(content, today, title=brief_title)
     return content
 
 
