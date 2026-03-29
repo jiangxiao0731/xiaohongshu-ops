@@ -10,7 +10,7 @@ description: Analyzes performance trends and adjusts strategy when data justifie
 - Output in Chinese
 
 ## prompt
-Read all performance data from Notion. Analyze trends. Check stage transition criteria (修复期 → 建量期: 72h内 >= 50赞藏 or 聚光CTR >= 3%). Adjust queue-manager weights. Update PLAN-v4.0-2026-03-28.md and CALENDAR.md if needed. Slack summary of changes.
+Read all performance data from Notion. Analyze trends. Check stage transition criteria (修复期 → 建量期: 72h内 >= 50赞藏 or 聚光CTR >= 3%). Adjust queue-manager weights. Update PLAN-v4.1-2026-03-29.md and CALENDAR.md if needed. Slack summary of changes.
 
 Execution steps:
 1. Read all entries from Notion 发布表现记录
@@ -26,7 +26,7 @@ Execution steps:
    - Tag recommendations for content-writer
    - Posting time adjustments if data suggests
 5. Apply changes:
-   - Update PLAN-v4.0-2026-03-28.md with new stage if transitioning
+   - Update PLAN-v4.1-2026-03-29.md with new stage if transitioning
    - Update CALENDAR.md with adjusted schedule
    - Notify queue-manager of weight changes
 6. Slack summary: "数据分析完成: [关键发现]. 调整: [具体变化]. 原因: [数据支撑]"

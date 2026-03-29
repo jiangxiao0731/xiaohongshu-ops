@@ -112,6 +112,15 @@ if [ "$DOW" = "2" ]; then
     NOTIFICATION_SENT=1
 fi
 
+# Personal account gap check (any day): warn if last personal post > 7 days ago
+LAST_PERSONAL=$(grep "^personal_post_count_this_month:" "$STATE_FILE" 2>/dev/null | head -1 | awk '{print $2}')
+if [ "$LAST_PERSONAL" = "0" ]; then
+    send_notification \
+        "警告: 个人号本月0发帖，断更超7天会降权！今天有TD/AI作品就发" \
+        "XHS运营 -- 个人号断更风险"
+    NOTIFICATION_SENT=1
+fi
+
 # Saturday: data entry reminder (building/stable phases)
 if [ "$DOW" = "6" ] && { [ "$PHASE" = "building" ] || [ "$PHASE" = "stable" ]; }; then
     send_notification \

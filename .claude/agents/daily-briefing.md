@@ -21,7 +21,8 @@ Execution steps:
 2. Read CALENDAR.md for today's scheduled items
 3. Check Notion drafts database for items in each status (待审批, 草稿就绪, 已发布)
 4. Check if any published posts are past 72h without performance data → trigger data-collector
-5. Check if any new ideas were scanned recently → mention them
-6. Output a numbered action list, most urgent first
-7. If a publish is scheduled today, trigger publish-assistant
-8. If nothing actionable exists, output "今天没事"
+5. Check personal account last publish date — if >7 days since last post, alert "个人号断更风险"
+6. Check if any new ideas were scanned recently → mention them
+7. Output a numbered action list, most urgent first
+8. If a publish is scheduled today, trigger publish-assistant
+9. If nothing actionable exists, output "今天没事"
