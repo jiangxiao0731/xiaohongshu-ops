@@ -53,7 +53,7 @@ tomorrow_dow = tomorrow.isoweekday()
 dow_names = {1: "周一", 2: "周二", 3: "周三", 4: "周四", 5: "周五", 6: "周六", 7: "周日"}
 phase_cn = {"repair": "修复期", "building": "建量期", "stable": "稳定期"}.get(phase, phase)
 
-POSTING_TIME = "北京 19:30（纽约 7:30AM）"
+POSTING_TIME = "北京 19:00（纽约 7:00AM）"
 COMPANY = "公司号「蕉蕉椒椒（作品集版）」"
 PERSONAL = "个人号「蕉蕉椒椒」"
 

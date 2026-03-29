@@ -100,12 +100,12 @@ case "$DOW" in
         TODOS="${TODOS}:two: Notion 草稿库填写本周背景（有新TD？有新案例？）→ 改「已批准」\n"
         TODOS="${TODOS}:three: 更新 WORKFLOW-STATE.md 的 current_phase_week\n\n"
         TODOS="${TODOS}:crystal_ball: *明天周二*\n"
-        TODOS="${TODOS}:art: 个人号有 TD 作品可以发（提前设好定时 19:30 北京）"
+        TODOS="${TODOS}:art: 个人号有 TD 作品可以发（提前设好定时 19:00 北京）"
         ;;
     2)  # Tuesday evening → tomorrow is Wednesday (COMPANY POSTING DAY)
         TODOS=":mega: *今晚必须完成 — 明天是公司号发帖日*\n\n"
         TODOS="${TODOS}:one: 打开 Notion 草稿库 → 复制本周公司号草稿\n"
-        TODOS="${TODOS}:two: XHS 创作者中心 → 发布 → *设定时发布：北京 19:30*\n"
+        TODOS="${TODOS}:two: XHS 创作者中心 → 发布 → *设定时发布：北京 19:00*\n"
         TODOS="${TODOS}:three: 勾选「AI辅助生成」标注\n"
         TODOS="${TODOS}:four: 确认封面和配图已准备好\n"
         TODOS="${TODOS}:five: Notion 发布表现记录新建一行：${TOMORROW_DATE} + 标题\n"
@@ -119,7 +119,7 @@ case "$DOW" in
         ;;
     3)  # Wednesday evening → post already scheduled, now monitor
         TODOS=":white_check_mark: *今晚*\n"
-        TODOS="${TODOS}:one: 确认公司号帖子已按时发出（北京 19:30）\n"
+        TODOS="${TODOS}:one: 确认公司号帖子已按时发出（北京 19:00）\n"
         TODOS="${TODOS}:two: 开薯条（如果还没开）\n"
         TODOS="${TODOS}:three: 回复前几条评论（发布后互动有加权）\n\n"
         TODOS="${TODOS}:crystal_ball: *明天周四*\n"
@@ -130,25 +130,25 @@ case "$DOW" in
         TODOS="${TODOS}:one: 回复公司号 + 个人号的评论和私信\n"
         TODOS="${TODOS}:two: 检查公司号帖曝光初步数据"
         ;;
-    5)  # Friday evening
-        TODOS=":speech_balloon: *今晚*\n"
+    5)  # Friday evening → tomorrow is Saturday (COMPANY POSTING DAY)
+        TODOS=":mega: *今晚必须完成 — 明天是公司号周六发帖日*\n\n"
+        TODOS="${TODOS}:one: 打开 Notion 草稿库 → 复制本周六公司号草稿\n"
+        TODOS="${TODOS}:two: XHS 创作者中心 → 发布 → *设定时发布：北京 19:00*\n"
+        TODOS="${TODOS}:three: 勾选「AI辅助生成」标注\n"
+        TODOS="${TODOS}:four: 确认封面和配图已准备好\n"
+        TODOS="${TODOS}:five: Notion 发布表现记录新建一行\n\n"
+        TODOS="${TODOS}:speech_balloon: *也别忘了*\n"
         TODOS="${TODOS}:one: 回复评论和私信\n"
         TODOS="${TODOS}:two: 检查薯条投放效果（曝光>500? <100?）"
-        if [ "$PHASE" = "building" ] || [ "$PHASE" = "stable" ]; then
-            TODOS="${TODOS}\n\n:crystal_ball: *周末要发周日帖*\n"
-            TODOS="${TODOS}:pencil2: 明晚设好周日帖的定时发布"
-        fi
         ;;
-    6)  # Saturday evening → Sunday might be posting day
+    6)  # Saturday evening → Saturday is company posting day (all phases)
+        TODOS=":mega: *今天是公司号周六发帖日*\n\n"
+        TODOS="${TODOS}:one: 确认公司号帖子已按时发出（北京 19:00）\n"
+        TODOS="${TODOS}:two: 开薯条（如果还没开）\n"
+        TODOS="${TODOS}:three: 回复前几条评论（发布后互动有加权）"
         if [ "$PHASE" = "building" ] || [ "$PHASE" = "stable" ]; then
-            TODOS=":mega: *今晚必须完成 — 明天是公司号周日档*\n\n"
-            TODOS="${TODOS}:one: Notion 草稿库 → 复制周日草稿\n"
-            TODOS="${TODOS}:two: XHS → 定时发布：*北京 19:30*\n"
-            TODOS="${TODOS}:three: 勾选「AI辅助生成」标注\n"
-            TODOS="${TODOS}:four: Notion 发布记录新建一行"
-        else
-            TODOS=":palm_tree: 修复期周末无公司号发帖\n"
-            TODOS="${TODOS}:speech_balloon: 回复评论和私信"
+            TODOS="${TODOS}\n\n:crystal_ball: *明天周日也是公司号发帖日*\n"
+            TODOS="${TODOS}:pencil2: 今晚设好周日帖的定时发布"
         fi
         ;;
     7)  # Sunday evening → Monday tasks preview

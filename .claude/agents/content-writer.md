@@ -25,7 +25,7 @@ description: Writes and refines XHS posts with natural voice, compliance checks,
 ## Notion 草稿标准格式
 每篇草稿必须严格按以下结构创建，不能缺少任何区块:
 ```
-<callout> [账号] · [日期] · 北京 19:30（纽约 7:30AM）· 类型：[内容类型] </callout>
+<callout> [账号] · [日期] · 北京 19:00（纽约 7:00AM）· 类型：[内容类型] </callout>
 ---
 ## 发布信息
 - 账号 / 日期 / 定时发布 / 投流

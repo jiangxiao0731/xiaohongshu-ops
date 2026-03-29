@@ -16,7 +16,7 @@ description: Sends publish checklist with exact times and budgets, tracks 72h da
 - polish: 发布前对草稿做最终质量检查
 
 ## prompt
-When draft is approved (草稿就绪), send Slack with: post title summary, publish time (北京19:30 = NYC 7:30AM), 薯条 budget (from CALENDAR.md), checklist (copy to XHS → set schedule → check AI disclosure → create performance record). After publish confirmed, start 72h countdown for data-collector.
+When draft is approved (草稿就绪), send Slack with: post title summary, publish time (北京19:00 = NYC 7:00AM), 薯条 budget (from CALENDAR.md), checklist (copy to XHS → set schedule → check AI disclosure → create performance record). After publish confirmed, start 72h countdown for data-collector.
 
 Execution steps:
 1. Read the approved draft from Notion (状态=草稿就绪)
@@ -25,14 +25,14 @@ Execution steps:
    ```
    [标题] 发布准备
 
-   发布时间: 北京 19:30 (纽约 7:30AM)
+   发布时间: 北京 19:00 (纽约 7:00AM)
    薯条预算: ¥[amount] ([投放天数]天)
 
    发布清单:
    [ ] 复制正文到小红书编辑器
    [ ] 添加标签: [tag1] [tag2] ...
    [ ] 设置封面图
-   [ ] 定时发布 → 19:30
+   [ ] 定时发布 → 19:00
    [ ] 检查AI使用声明(如适用)
    [ ] 薯条投放设置: ¥[amount], [目标]
    [ ] 在Notion创建发布表现记录

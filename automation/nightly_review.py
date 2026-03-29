@@ -199,7 +199,7 @@ def main():
         critical = [item for item in undone if is_critical(item)]
         if critical:
             alert = ":rotating_light: :rotating_light: *警告: 明天是发帖日但定时发布还没设好！*\n"
-            alert += "现在去设：XHS 创作者中心 → 发布 → 定时 19:30 北京"
+            alert += "现在去设：XHS 创作者中心 → 发布 → 定时 19:00 北京"
             send_slack(alert)
             print("CRITICAL: Posting day prep not done!")
 

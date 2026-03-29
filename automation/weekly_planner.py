@@ -49,8 +49,8 @@ MODEL = "claude-sonnet-4-6"
 
 # Phase -> post plan: list of (account_type, day_label)
 PHASE_POST_PLANS = {
-    "repair":   [("company", "周三")],
-    "修复期":    [("company", "周三")],
+    "repair":   [("company", "周三"), ("company", "周六")],
+    "修复期":    [("company", "周三"), ("company", "周六")],
     "building": [("company", "周三"), ("company", "周日"), ("personal", "周二")],
     "建量期":    [("company", "周三"), ("company", "周日"), ("personal", "周二")],
     "stable":   [("company", "周三"), ("company", "周日"), ("personal", "周二"), ("personal", "周四")],

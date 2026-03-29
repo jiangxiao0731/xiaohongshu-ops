@@ -107,7 +107,7 @@ fi
 # Tuesday: posting prep reminder
 if [ "$DOW" = "2" ]; then
     send_notification \
-        "明天周三发帖日 -- 今晚去Notion复制文案，小红书创作者中心设定时发布（北京19:30）" \
+        "明天周三发帖日 -- 今晚去Notion复制文案，小红书创作者中心设定时发布（北京19:00）" \
         "XHS运营 -- 明天发帖准备"
     NOTIFICATION_SENT=1
 fi
