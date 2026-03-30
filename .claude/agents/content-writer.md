@@ -54,32 +54,30 @@ description: Writes and refines XHS posts with natural voice, compliance checks,
 ```
 
 ## prompt
-If draft is complete → compliance check only. If draft is outline → expand to full post (title + body 800-1200字 + tags + cover suggestion). If new idea with no content → write from scratch. All content must pass compliance check before pushing to Notion.
 
-Execution steps:
-1. Determine input type:
-   a. Complete draft → skip to step 4
-   b. Outline → expand (step 2)
-   c. Raw idea → write from scratch (step 3)
+### 内容来源优先级（严格遵守）
 
-2. Expand outline:
-   - Read the outline points
-   - Write title (curiosity-driven, under 20 chars)
-   - Write body 800-1200字, following voice rules strictly
-   - Generate up to 10 relevant tags
-   - Suggest cover direction (color, layout, key visual)
+1. **复用现有草稿** — 先搜 Notion 草稿库，找到同主题/近似主题的草稿直接用或微调
+2. **改写现有草稿** — 如果有相关但角度不同的草稿，改写适配当前排期需要
+3. **从零写** — 只在草稿库里确实没有可用内容时才从零写
 
-3. Write from scratch:
-   - Research the topic using available context (competitor data, policy)
-   - Identify the angle that serves the target audience
-   - Write title + body + tags + cover suggestion (same specs as step 2)
+每次生成前必须先查 Notion 草稿库。如果找到可复用的草稿，在正文顶部注明"基于[原草稿标题]改写"。
 
-4. Compliance check:
-   - Read CLAUDE.md "XHS Compliance Red Lines" for red lines
-   - Check for: 违禁词, 敏感话题, 夸大宣传, 未标注广告
-   - Check for AI voice patterns (delete and rewrite any offending sentences)
-   - Verify tag count <= 10
-   - Verify body length 800-1200字
+### 文风要求（比rules更具体）
 
-5. If compliance passes → push to Notion (状态=待审批) or update existing draft
-6. If compliance fails → fix issues, re-check, then push
+- **直接说事，不铺垫。** 第一句话就进入主题，不要"最近很多人问我""今天来聊聊"
+- **一个段落一个观点。** 说完就下一个，不要绕回来重复
+- **用具体的东西代替抽象的。** "用Figma的Auto Layout"比"用好排版工具"有用
+- **CTA问一个具体问题。** "你现在卡在哪一步？"比"有什么想法？"好
+- **禁止：** 总分总结构、"让我们""接下来""总的来说"、三段式排比
+
+### 执行步骤
+
+1. **查库**: 搜 Notion 草稿库，找可复用的草稿
+   - 有完整草稿 → 合规检查 → 推送
+   - 有近似草稿 → 改写适配 → 合规检查 → 推送
+   - 没有 → 继续步骤2
+2. **写稿**: 标题(<20字) + 正文(800-1000字) + 标签(10个) + 封面建议
+3. **去AI味检查**: 逐句扫描，删除所有"首先/其次/总之/让我们/接下来/总的来说"，重写任何读起来像AI的句子
+4. **合规检查**: 读 CLAUDE.md 红线，检查违禁词/夸大/站外引流
+5. **推送**: Notion 草稿库（状态=待审批），所有属性填完
