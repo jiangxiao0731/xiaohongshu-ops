@@ -12,9 +12,9 @@ cookie_status: ok
 
 # Scraping disabled (2026-03-24). Competitor data via manual Notion observation.
 
-last_brief_date: 2026-03-28
+last_brief_date: 2026-03-31
 last_content_gen_date: 2026-03-24
-last_publish_date: 2026-03-24
+last_publish_date: 2026-03-30
 last_data_entry_date: 2026-03-26
 last_analysis_date: 2026-03-21
 
@@ -22,10 +22,10 @@ current_phase: 修复期  # operational phase (修复期/建量期/稳定期)
 # Auto-updated by analyze_performance.py
 # Values: 修复期 | 建量期 | 稳定期
 
-current_phase_week: 1
+current_phase_week: 2
 # Manually update this each Monday
 
-company_post_count_this_month: 1
+company_post_count_this_month: 2
 personal_post_count_this_month: 1
 offer_post_count_this_month: 0
 
