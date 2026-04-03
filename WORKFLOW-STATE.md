@@ -14,7 +14,7 @@ cookie_status: ok
 
 # Scraping disabled (2026-03-24). Competitor data via manual Notion observation.
 
-last_brief_date: 2026-03-22
+last_brief_date: 2026-04-03
 last_content_gen_date: 2026-03-28
 last_publish_date: 2026-03-24
 last_data_entry_date: 2026-03-29
@@ -24,7 +24,7 @@ current_phase: 修复期
 # Auto-updated by analyze_performance.py
 # Values: 修复期 | 建量期 | 稳定期
 
-current_phase_week: 1
+current_phase_week: 2
 # Manually update this each Monday
 
 company_post_count_this_month: 1
@@ -40,5 +40,5 @@ warmup_complete: yes
 # has_new_td_work: no
 # has_new_case: no
 # notes:
-last_missed_tasks: 数据录入逾期 — 公司号「蕉蕉椒椒（作品集版）」 帖子 2026-03-24 已超72h，去 Notion 发布表现记录填写赞/藏/评/私信数 | 公司号「蕉蕉椒椒（作品集版）」 + 个人号「蕉蕉椒椒」 → 回复评论和私信
-last_missed_date: 2026-03-28
+last_missed_tasks: ⚠️ W1 3/29帖(AI工具实操清单)未发布 | ⚠️ W2 4/2帖(数媒专业干货)未发布(昨天逾期) | 公司号+个人号评论和私信待回复
+last_missed_date: 2026-04-03
