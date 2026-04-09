@@ -14,7 +14,7 @@ cookie_status: ok
 
 # Scraping disabled (2026-03-24). Competitor data via manual Notion observation.
 
-last_brief_date: 2026-04-05
+last_brief_date: 2026-04-09
 last_content_gen_date: 2026-04-05
 last_publish_date: 2026-03-30
 last_data_entry_date: 2026-03-29
