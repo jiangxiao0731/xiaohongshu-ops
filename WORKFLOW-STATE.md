@@ -14,7 +14,7 @@ cookie_status: ok
 
 # Scraping disabled (2026-03-24). Competitor data via manual Notion observation.
 
-last_brief_date: 2026-05-17
+last_brief_date: 2026-05-18
 last_content_gen_date: 2026-04-26
 last_publish_date: 2026-03-30
 last_data_entry_date: 2026-03-29
@@ -24,7 +24,7 @@ current_phase: 修复期
 # Auto-updated by analyze_performance.py
 # Values: 修复期 | 建量期 | 稳定期
 
-current_phase_week: 8
+current_phase_week: 9
 # Manually update this each Monday
 
 company_post_count_this_month: 2
@@ -45,8 +45,8 @@ warmup_complete: yes
 # 2026-04-05 weekly analysis: W3草稿就绪(公司号2篇) 个人号W3草稿已新建
 # 竞品数据库无新条目，沿用历史分析
 # 政策无新变化，2026 Q1规则稳定
-last_missed_tasks: ⚠️ W2-W7全部历史数据待补录(严重逾期) | ❓ 5/13「把文书当情书写」是否已发待确认 | ❓ 5/16「后台Q&A第二弹」是否已发待确认 | ❓ 5/16个人号「vibe coding三个月后」是否已发待确认
-last_missed_date: 2026-05-17
+last_missed_tasks: ⚠️ W2-W7全部历史数据待补录(严重逾期) | ❓ 5/13「把文书当情书写」是否已发待确认 | ❓ 5/16「后台Q&A第二弹」是否已发待确认 | ❓ 5/16个人号「vibe coding三个月后」是否已发待确认 | ⚠️ 个人号TD「触发随机数字」(5/14)72h数据待录入
+last_missed_date: 2026-05-18
 # 2026-05-17 周日复盘: W9草稿就绪(5/20作品集DIY第一步+5/23数媒不用写代码) | 政策：百万跃迁计划上线(电商，不影响我们)；虚假人设严查力度加强(强化两号独立必要性) | 竞品库无新条目沿用历史分析 | 阶段数据仍未录入无法判断转换
 # 2026-04-26 周日复盘: W6草稿全部就绪(4/27工具清单6/6已定时 4/29四周赶作品集 4/30vibe coding个人号 5/2数媒不用写代码已扩写) | 政策无新变化 | 竞品库无新条目 | 阶段数据待录入才能正式判断转换
 # 2026-04-12 周日复盘: W4草稿新建完成(4/16五页排版模板+4/19 Figma快捷操作) | 开题三大坑扩写至800字 | 政策无新变化 | 竞品库无新条目 | 阶段继续修复期
